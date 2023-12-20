@@ -55,7 +55,7 @@ export class AvailabilityComponent {
 
     // Suche mithilfe des RegEx-Suchtexts nach dem entsprechenden Standort.
     let istVerfuegbar;
-    let suchtext = "<.*" + standort + "<[^V]*Verfügbar\">";
+    let suchtext = "<.*" + standort + "<[^V]*Verfügbar.*";
     try {
       istVerfuegbar = this.website.match(suchtext);
     } catch {
