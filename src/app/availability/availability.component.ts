@@ -13,10 +13,10 @@ export class AvailabilityComponent {
 // Dank an hhf42
 
 // erwartet Strings mit der T-ID der zu suchenden Bücher
-  buecher: string[];
+  buecherTIDs: string[];
 
   // erwartet String mit Namen des Bücherhallen-Stadorts
-  buecherhalle: string;
+  standort: string;
 
   website: string;
 
@@ -29,14 +29,18 @@ export class AvailabilityComponent {
   }
 
   ngOnInit() {
-    this.buecherhalle = this.standortService.getStandort();
-    this.buecher = this.buecherService.getTIDs();
+    this.standort = this.standortService.getStandort();
+    this.buecherTIDs = this.buecherService.getTIDs();
+
+      for (const buchTID of this.buecherTIDs) {
+          this.sucheBuch(buchTID, this.standort);
+      }
   }
 
 // Funktion, um nach einem Buch in einer Bücherhalle zu suchen
 // wenn sich das Layout der Website ändert, dann läuft die regex ins Leere, das kann man sicher eleganter machen
-  sucheBuch(gesuchtesBuch, buecherhalle) {
-    let urlBuch = this.urlBasis + gesuchtesBuch + '.html';
+  sucheBuch(gesuchteTID, standort) {
+    let urlBuch = this.urlBasis + gesuchteTID + '.html';
     try {
       this.http.get(urlBuch).subscribe(data =>
         this.website = data.toString());
@@ -47,26 +51,17 @@ export class AvailabilityComponent {
     let suche;
 
     try {
-      suche = this.website.includes(buecherhalle + '</span>\n    <span class="medium-availability-item-title-icon">\n              <svg width="19px" height="19px" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Verfügbar">')
+      suche = this.website.includes(standort + '</span>\n    <span class="medium-availability-item-title-icon">\n              <svg width="19px" height="19px" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Verfügbar">')
     } catch {
       // TODO Fehlermeldung
     }
 
     if (suche) {
       // TODO Rücklieferung: true/ false
-      console.log('Buch ' + gesuchtesBuch + ' gefunden in ' + buecherhalle);
+      console.log('Buch ' + gesuchteTID + ' gefunden in ' + standort);
     } else {
       // TODO Fehlermeldung
     }
   }
 
-
-// Nach allen Büchern in allen Bücherhallen suchen und dann eine Stunde warten.
-//     while(true) {
-//       for (let buch of this.buecher) {
-//       this.sucheBuch(buch, this.buecherhalle) }
-//
-//       // print(time.ctime(),'Beendet, 1h warten')
-//       // time.sleep(3600)
-//   }
 }
