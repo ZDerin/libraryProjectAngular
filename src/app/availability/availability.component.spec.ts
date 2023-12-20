@@ -11,7 +11,7 @@ describe('AvailabilityComponent', () => {
       imports: [AvailabilityComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(AvailabilityComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -20,4 +20,10 @@ describe('AvailabilityComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should return a html string', () => {
+    expect()
+  });
+
+
 });
