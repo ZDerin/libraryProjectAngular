@@ -40,28 +40,37 @@ export class AvailabilityComponent {
 // Funktion, um nach einem Buch in einer Bücherhalle zu suchen
 // wenn sich das Layout der Website ändert, dann läuft die regex ins Leere, das kann man sicher eleganter machen
   sucheBuch(gesuchteTID, standort) {
+
+    // Rufe die Detail-Seite für das Buch mit der gesuchten TID auf
+    // und speichere den dazugehörigen HTML-Code als String
     let urlBuch = this.urlBasis + gesuchteTID + '.html';
     try {
       this.http.get(urlBuch).subscribe(data =>
         this.website = data.toString());
+      console.log(this.website);
     } catch (error) {
       // TODO Fehlermeldung
     }
 
-    let suche;
 
+    // Suche mithilfe des RegEx-Suchtexts nach dem entsprechenden Standort.
+    let istVerfuegbar;
+    let suchtext = "<.*" + standort + "<[^V]*Verfügbar\">";
     try {
-      suche = this.website.includes(standort + '</span>\n    <span class="medium-availability-item-title-icon">\n              <svg width="19px" height="19px" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Verfügbar">')
+      istVerfuegbar = this.website.match(suchtext);
     } catch {
       // TODO Fehlermeldung
     }
 
-    if (suche) {
-      // TODO Rücklieferung: true/ false
-      console.log('Buch ' + gesuchteTID + ' gefunden in ' + standort);
-    } else {
-      // TODO Fehlermeldung
-    }
+    // Update in der Datenbank den Status der Verfügbarkeit
+    this.buecherService.updateBuch(gesuchteTID, istVerfuegbar);
+
+
+    // if (istVerfuegbar) {
+    //   console.log('Buch ' + gesuchteTID + ' gefunden in ' + standort);
+    // } else {
+    //   //
+    // }
   }
 
 }
