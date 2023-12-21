@@ -1,0 +1,22 @@
+.navbar-burger{
+  margin-top: 20px;
+}
+.sign{
+  color: hsl(240, 100%, 20%)!important;
+  border-color: hsl(240, 100%, 20%)!important;
+}
+.navbar-item{
+  color: hsl(240, 100%, 20%)!important;
+}
+.button nav{
+  border-color: hsl(240, 100%, 20%)!important;
+}
+.fa-solid{
+  margin-top: 30px;
+}
+.fa-solid:hover{
+  transform: scale(1.1);
+}
+.navbar-burger{
+  background-color: white;
+}
