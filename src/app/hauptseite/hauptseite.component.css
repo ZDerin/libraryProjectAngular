@@ -1,0 +1,7 @@
+img{
+  width: 70%;
+}
+.column.is-4-mobile {
+  border-bottom: 10px solid saddlebrown; /* Hier kannst du die Farbe der Linie anpassen */
+  margin-bottom: 20px; /* Optional: Füge Platz unterhalb des Buchs hinzu */
+}

@@ -8,6 +8,10 @@
 .navbar-item{
   color: hsl(240, 100%, 20%)!important;
 }
+.navbar-item:hover{
+  background-color: white;
+  transform: scale(1.1);
+}
 .button nav{
   border-color: hsl(240, 100%, 20%)!important;
 }
@@ -20,3 +24,8 @@
 .navbar-burger{
   background-color: white;
 }
+.navbar{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
