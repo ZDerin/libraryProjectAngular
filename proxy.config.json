@@ -1,0 +1,7 @@
+{
+  "*": {
+    "secure" : false,
+    "target" : "https://www.buecherhallen.de/",
+    "changeOrigin" : true
+  }
+}
