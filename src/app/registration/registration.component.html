@@ -1,0 +1,32 @@
+<p>Sign up here!</p>
+
+<form [formGroup]="registrationForm" (ngSubmit)="register()">
+  <label for="username"> Benutzername:
+    <input type="text" id="username" formControlName="username">
+  </label>
+  <label for="email"> Email:
+    <input type="email" id="email" formControlName="email">
+  </label>
+  <label for="password1"> Passwort:
+    <input type='password' id="password1" formControlName="password1">
+  </label>
+  <label for="password2"> Wiederhole die Passwort:
+    <input type='password' id="password2" formControlName="password2">
+  </label>
+  <div>
+    <div *ngIf="formControls.username.errors?.['required'] && isFormSubmitted"> Benutzername ist erforderlich </div>
+    <div *ngIf="formControls.username.errors?.['minlength']">
+      Benutzername muss mindestens 2 Zeichen lang sein
+    </div>
+    <div *ngIf="formControls.email.errors?.['required'] && isFormSubmitted"> Email ist erforderlich </div>
+    <div *ngIf="formControls.email.errors?.['email']">
+      Ungültiges E-Mail-Format
+    </div>
+    <div *ngIf="(formControls.password1.errors?.['required'] || formControls.password2.errors?.['required']) && isFormSubmitted"> Passwort ist erforderlich </div>
+    <div *ngIf="formControls.password1.errors?.['minlength'] ||formControls.password2.errors?.['minlength']">
+      Passwort muss mindestens 6 Zeichen lang sein
+    </div>
+  </div>
+
+  <button type="submit"> Sign up </button>
+</form>
