@@ -1,0 +1,19 @@
+
+<div class="columns has-text-centered">
+  <div class="column">
+    <img src="assets/shelf-575409_1280.png" alt="bookshelf">
+  </div>
+</div>
+<div class="container bookshelf">
+  <div class="columns is-multiline is-mobile">
+    <div class="column is-one-third is-4-mobile" *ngFor="let book of books">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image">
+            <img src="{{ book.cover }}" alt="{{ book.titel }}">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
