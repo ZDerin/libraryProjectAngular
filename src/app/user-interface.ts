@@ -8,3 +8,10 @@ export interface UserLogin {
   username: string;
   password: string;
 }
+
+export interface UserJwt {
+  username: string,
+  password: string,
+  token:string,
+  roles:string
+}

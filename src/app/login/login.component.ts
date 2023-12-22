@@ -2,14 +2,17 @@ import { Component } from '@angular/core';
 import {NgIf} from "@angular/common";
 import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {UserdataService} from "../userdata.service";
+import {LogoutComponent} from "../logout/logout.component";
+import {UserJwt} from "../user-interface";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-    imports: [
-        NgIf,
-        ReactiveFormsModule
-    ],
+  imports: [
+    NgIf,
+    ReactiveFormsModule,
+    LogoutComponent
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -17,6 +20,7 @@ import {UserdataService} from "../userdata.service";
 export class LoginComponent {
 
   isFormSubmitted:boolean = false;
+  private token:string = '';
 
   loginForm = this.formBuilder.group({
     username: ['', Validators.required],
@@ -34,23 +38,17 @@ export class LoginComponent {
   login() {
     this.isFormSubmitted = true;
     const loginData = this.loginForm.value;
-    /*
+
     const userToLogin = {
       username: loginData.username!,
-      password : loginData.password!
+      password : loginData.password!,
+      token: '',
+      roles: ''
     }
-    this.userdataService.sendLoginDataToDb(userToLogin).subscribe(
+    this.userdataService.userLogIn(userToLogin).subscribe(
       response => {
         console.log('Login successful:', response);
-      })*/
-
-  this.userdataService.sendLogInFormValues(loginData).subscribe(
-    response => {
-      console.log('Login successful: ', response)
-    }
-  )
-    console.log('logged in')
+        localStorage.setItem("token", response.token);
+      })
   }
-
-
 }

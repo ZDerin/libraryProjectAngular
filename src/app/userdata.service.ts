@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from "@angular/common/http";
-import {UserLogin, UserRegister} from "./user-interface";
-import {AbstractControl, ValidationErrors, ɵElement, ɵFormGroupValue, ɵTypedOrUntyped} from "@angular/forms";
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {UserJwt, UserLogin, UserRegister} from "./user-interface";
 
 @Injectable({
   providedIn: 'root'
@@ -9,30 +8,26 @@ import {AbstractControl, ValidationErrors, ɵElement, ɵFormGroupValue, ɵTypedO
 export class UserdataService {
 
   private dbUrl: string = '/api/v1/users';
-  private singInUrl: string = '/login';
+  private logInUrl: string = '/login';
+  private logOutUrl: string = '/logout';
 
-  constructor(private http: HttpClient) { }
-  sendNewUserDataToDb(user: UserRegister){
+  constructor(private http: HttpClient,) { }
+  registerNewUser(user: UserRegister){
     const headers = { 'content-type': 'application/json'};
     console.log(user)
     return this.http.post<UserRegister>(this.dbUrl, user, {headers})
   }
 
-  sendLoginDataToDb(user : UserLogin){
+  userLogIn(user : UserLogin){
     const headers = { 'content-type': 'application/json'};
-    console.log(user)
-    return this.http.post<UserLogin>(this.dbUrl, user, {headers})
+    //console.log(user, 'login data von frontend')
+    const params = new HttpParams().append("username", user.username ).append("password", user.password)
+    return this.http.post<UserJwt>(this.logInUrl, user, {headers,params})
   }
 
-  sendLogInFormValues(loginData: ɵTypedOrUntyped<{
-    password: ɵElement<(string | ((control: AbstractControl) => (ValidationErrors | null)))[], null>;
-    username: ɵElement<(string | ((control: AbstractControl) => (ValidationErrors | null)))[], null>
-  }, ɵFormGroupValue<{
-    password: ɵElement<(string | ((control: AbstractControl) => (ValidationErrors | null)))[], null>;
-    username: ɵElement<(string | ((control: AbstractControl) => (ValidationErrors | null)))[], null>
-  }>, any>) {
+  userLogOut(token: string){
     const headers = { 'content-type': 'application/json'};
-    console.log(loginData)
-    return this.http.post<UserLogin>(this.singInUrl, loginData, {headers})
+    //return this.http.post<String>(this.logOutUrl, token, {headers})
+    localStorage.removeItem('token');
   }
 }

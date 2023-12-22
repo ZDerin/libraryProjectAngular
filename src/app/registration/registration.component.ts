@@ -35,25 +35,21 @@ export class RegistrationComponent {
   register() {
     this.isFormSubmitted = true;
     const newUserData = this.registrationForm.value;
+
     if(newUserData.password1 !== newUserData.password2){
       window.alert('Die Passwörter sind nicht gleich!');
       //reset the form?
+    } else if(newUserData.password1 === newUserData.password2){
+      const userToRegister : UserRegister = {
+        username: newUserData.username!,
+        email: newUserData.email!,
+        password: newUserData.password1!
+      }
+      this.userdataService.registerNewUser(userToRegister).subscribe(
+        response => {
+          console.log('Registration successful:', response);
+        })
     }
-    console.log('submitted')
-
-    const userToRegister : UserRegister = {
-      username: newUserData.username!,
-      email: newUserData.email!,
-      password: newUserData.password1!
-    }
-   this.userdataService.sendNewUserDataToDb(userToRegister).subscribe(
-     response => {
-       console.log('Registration successful:', response);
-
-     })
   }
 
-  /*hideShowPasswort() {
-    this.show = !this.show;
-  }*/
 }
