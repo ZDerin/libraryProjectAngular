@@ -1,0 +1,17 @@
+<p>login works!</p>
+
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <label for="username"> Benutzername:
+    <input type="text" id="username" formControlName="username">
+  </label>
+  <label for="password"> Passwort:
+    <input type='password' id="password" formControlName="password">
+  </label>
+
+  <div>
+    <div *ngIf="formControls.username.errors?.['required'] && isFormSubmitted"> Benutzername ist erforderlich </div>
+    <div *ngIf="formControls.password.errors?.['required'] && isFormSubmitted"> Passwort ist erforderlich </div>
+  </div>
+
+  <button type="submit"> Login </button>
+</form>
