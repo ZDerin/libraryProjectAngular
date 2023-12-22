@@ -1,8 +1,5 @@
 {
-  "*": {
-    "secure": false,
-    "target": "https://www.buecherhallen.de/",
-    "changeOrigin": true},
+
   "/api" : {
     "target": "http://localhost:8080",
     "secure": false
