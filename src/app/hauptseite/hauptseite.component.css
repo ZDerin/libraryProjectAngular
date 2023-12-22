@@ -1,7 +1,33 @@
-img{
-  width: 70%;
+.book-row {
+  padding: 0 12% 0 12% !important;
+  z-index: 2;
+  margin-left: 8px;
 }
-.column.is-4-mobile {
-  border-bottom: 10px solid saddlebrown; /* Hier kannst du die Farbe der Linie anpassen */
-  margin-bottom: 20px; /* Optional: Füge Platz unterhalb des Buchs hinzu */
+
+.cover{
+  z-index: 2;
 }
+
+h1 {
+  font-size: 2.2rem;
+  font-family: 'Work Sans', sans-serif;
+  color: hsl(240, 100%, 20%);
+  margin-top: -60px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+p{
+  font-size: 1.5rem;
+  font-family: 'Work Sans', sans-serif;
+  color: hsl(240, 100%, 20%);
+  margin-left: 10px;
+}
+
+.regal-image{
+  position: relative;
+  width: 120% !important;
+  margin-top: -46px;
+  z-index: 0;
+}
+

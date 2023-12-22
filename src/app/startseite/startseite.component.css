@@ -7,7 +7,7 @@ h1{
 }
 p{
   font-size: 1.3rem;
-  margin-top: 20px;
+  margin-top: 10px;
   color: hsl(240, 100%, 20%);
 
 }
@@ -15,7 +15,7 @@ p{
 button{
 
   border-radius: 50px;
-  margin-top:40px;
+  margin-top:20px;
   color: white;
   width: 150px;
   background:  rgba(178, 34, 34, 1);
@@ -59,3 +59,4 @@ button{
 .button:hover:before {
   width: 100%;
 }
+

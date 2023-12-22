@@ -1,19 +1,17 @@
-
-<div class="columns has-text-centered">
-  <div class="column">
-    <img src="assets/shelf-575409_1280.png" alt="bookshelf">
-  </div>
-</div>
-<div class="container bookshelf">
-  <div class="columns is-multiline is-mobile">
-    <div class="column is-one-third is-4-mobile" *ngFor="let book of books">
-      <div class="card">
-        <div class="card-image">
-          <figure class="image">
-            <img src="{{ book.cover }}" alt="{{ book.titel }}">
-          </figure>
-        </div>
+<div class="section">
+  <div class="container is-fluid">
+    <h1>Hallo, Lilly!</h1>
+    <p>Hier findest du deine Bücherliste. Viel Spaß beim Stöbern!</p>
+  <br><br>
+    <div class="columns has-text-centered is-multiline is-mobile" *ngFor="let batch of batchesOfBooks;">
+      <div class="columns has-text-centered is-multiline is-mobile book-row">
+          <div class="column is-4-mobile is-4-tablet is-4-desktop" *ngFor="let book of batch; let i = index">
+            <div class="cover">
+              <img src="{{ book.cover }}" alt="{{ book.titel }}">
+            </div>
+          </div>
       </div>
+      <img src="/assets/136kopie2.png" alt="Regal" class="regal-image" style="width: 120%; height: auto">
     </div>
   </div>
 </div>
