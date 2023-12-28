@@ -4,6 +4,7 @@ import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {UserdataService} from "../userdata.service";
 import {LogoutComponent} from "../logout/logout.component";
 import {UserJwt} from "../user-interface";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent {
 
   isFormSubmitted:boolean = false;
   private token:string = '';
+  currentUser: string|null = localStorage.getItem('username');
 
   loginForm = this.formBuilder.group({
     username: ['', Validators.required],
@@ -28,7 +30,8 @@ export class LoginComponent {
   })
 
   constructor(private formBuilder: FormBuilder,
-              private userdataService : UserdataService) {
+              private userdataService : UserdataService,
+              private router : Router) {
   }
 
   get formControls() {
@@ -39,7 +42,7 @@ export class LoginComponent {
     this.isFormSubmitted = true;
     const loginData = this.loginForm.value;
 
-    const userToLogin = {
+    const userToLogin: UserJwt = {
       username: loginData.username!,
       password : loginData.password!,
       token: '',
@@ -49,6 +52,10 @@ export class LoginComponent {
       response => {
         console.log('Login successful:', response);
         localStorage.setItem("token", response.token);
+        localStorage.setItem('username', response.username);
+        window.location.reload();
       })
+    this.router.navigate(['/home']);
+
   }
 }

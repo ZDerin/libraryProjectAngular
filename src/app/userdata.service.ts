@@ -14,8 +14,8 @@ export class UserdataService {
   constructor(private http: HttpClient,) { }
   registerNewUser(user: UserRegister){
     const headers = { 'content-type': 'application/json'};
-    console.log(user)
-    return this.http.post<UserRegister>(this.dbUrl, user, {headers})
+    return this.http.post<any>(this.dbUrl, user, {headers})
+    // hab den Type aus UserRegister zur any geaendert. In Backend aus UUID zur Object.
   }
 
   userLogIn(user : UserLogin){
@@ -25,9 +25,8 @@ export class UserdataService {
     return this.http.post<UserJwt>(this.logInUrl, user, {headers,params})
   }
 
-  userLogOut(token: string){
-    const headers = { 'content-type': 'application/json'};
-    //return this.http.post<String>(this.logOutUrl, token, {headers})
+  userLogOut(){
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
   }
 }

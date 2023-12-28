@@ -1,6 +1,4 @@
-<p>Sign up here!</p>
-
-<form [formGroup]="registrationForm" (ngSubmit)="register()">
+<form *ngIf="localStorage.getItem('username') === null" [formGroup]="registrationForm" (ngSubmit)="register()">
   <label for="username"> Benutzername:
     <input type="text" id="username" formControlName="username">
   </label>

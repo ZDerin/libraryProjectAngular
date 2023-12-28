@@ -62,7 +62,8 @@ export class AvailabilityComponent {
         istVerfuegbar = suchtext.test(website);
 
         // Update in der Datenbank den Status der Verfügbarkeit
-        this.buecherService.updateBuch(gesuchteTID, istVerfuegbar);
+       //
+          // this.buecherService.updateBuch(gesuchteTID, istVerfuegbar);
       }
         );
     } catch (error) {

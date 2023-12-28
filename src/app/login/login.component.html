@@ -1,6 +1,4 @@
-<p>login works!</p>
-
-<form [formGroup]="loginForm" (ngSubmit)="login()">
+<form *ngIf="currentUser === null" [formGroup]="loginForm" (ngSubmit)="login()">
   <label for="username"> Benutzername:
     <input type="text" id="username" formControlName="username">
   </label>
@@ -13,6 +11,7 @@
     <div *ngIf="formControls.password.errors?.['required'] && isFormSubmitted"> Passwort ist erforderlich </div>
   </div>
 
-  <button type="submit"> Login </button>
+  <button type="submit">Login </button>
 </form>
-<app-logout></app-logout>
+
+<p *ngIf="currentUser"> Willkommen {{currentUser}}! Du hast dich erfolgreich angemeldet! </p>
