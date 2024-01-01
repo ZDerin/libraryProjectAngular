@@ -1,0 +1,29 @@
+<h3>Du kannst hier deine Goodreads to-read Liste neu übernehmen oder die vorhandene Liste nach deiner Goodlist Liste aktualisieren</h3>
+<br>
+<label for="goodreadsfile"> Wenn du deine Bücher als CSV Datei vorhanden hast:<br>
+<input type="file" accept=".csv" id="goodreadsfile" (change)="handleFileInput($event)">
+</label>
+<button type="button" (click)="uploadFile()"> Lade diese Datei hoch </button>
+
+<br>
+<br>
+<button *ngIf="!showHelp" type="button" (click)="changeShowHelp()"> Hast du keine CSV Datei, klick für Hilfe </button>
+<label *ngIf="showHelp" for="goodreadsfile"> Geh durch diese Link zur Export Seite von Goodreads and klick auf Export Library und danach auf darunter liegende "Your export from...", dann findest du deine CSV Datei in Downloads<br>
+  <a href="https://www.goodreads.com/review/import" target="_blank"> to Goodreads Export Seite</a>
+</label>
+<br>
+<br>
+<h3> ODER </h3>
+<h3> deine Lesewunschliste manuell erweitern </h3>
+<form [formGroup]="bookToReadForm" (ngSubmit)="addToReadingWishlist()">
+  <label for="isbn"> ISBN13:
+    <input type="text" id="isbn" formControlName="isbn">
+  </label>
+  <label for="title"> Titel:
+    <input type="text" id="title" formControlName="title">
+  </label>
+  <label for="author"> Autor:
+    <input type="text" id="author" formControlName="author">
+  </label>
+  <button type="submit" > Addiere zu deiner Lesewunschliste </button>
+</form>

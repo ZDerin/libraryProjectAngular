@@ -3,7 +3,7 @@ import {NgIf} from "@angular/common";
 import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {UserdataService} from "../userdata.service";
 import {LogoutComponent} from "../logout/logout.component";
-import {UserJwt} from "../user-interface";
+import {UserJwt} from "../interfaces";
 import {Router} from "@angular/router";
 
 @Component({
@@ -53,9 +53,14 @@ export class LoginComponent {
         console.log('Login successful:', response);
         localStorage.setItem("token", response.token);
         localStorage.setItem('username', response.username);
-        window.location.reload();
+        this.router.navigate(['/home']).then(response => {
+          window.location.reload();
+        });
+      },
+      error => {
+        window.alert("Einloggen Daten sind nicht richtig!")
       })
-    this.router.navigate(['/home']);
+
 
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {UserJwt, UserLogin, UserRegister} from "./user-interface";
+import {UserJwt, UserLogin, UserRegister} from "./interfaces";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class UserdataService {
   }
 
   userLogIn(user : UserLogin){
-    const headers = { 'content-type': 'application/json'};
+    const headers = { 'content-type': 'application/json', };
     //console.log(user, 'login data von frontend')
     const params = new HttpParams().append("username", user.username ).append("password", user.password)
     return this.http.post<UserJwt>(this.logInUrl, user, {headers,params})

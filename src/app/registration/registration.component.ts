@@ -3,7 +3,7 @@ import {FormBuilder, ReactiveFormsModule, FormControl, Validators, NgForm, FormG
 import {CommonModule} from "@angular/common";
 import {RouterOutlet} from "@angular/router";
 import {UserdataService} from "../userdata.service";
-import {UserRegister} from "../user-interface";
+import {UserRegister} from "../interfaces";
 import {Router} from "@angular/router";
 
 @Component({
