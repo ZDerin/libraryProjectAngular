@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {UserJwt, UserLogin, UserRegister} from "./user-interface";
+import {UserJwt, UserLogin, UserRegister} from "./interfaces";
 
 @Injectable({
   providedIn: 'root'
@@ -14,20 +14,19 @@ export class UserdataService {
   constructor(private http: HttpClient,) { }
   registerNewUser(user: UserRegister){
     const headers = { 'content-type': 'application/json'};
-    console.log(user)
-    return this.http.post<UserRegister>(this.dbUrl, user, {headers})
+    return this.http.post<any>(this.dbUrl, user, {headers})
+    // hab den Type aus UserRegister zur any geaendert. In Backend aus UUID zur Object.
   }
 
   userLogIn(user : UserLogin){
-    const headers = { 'content-type': 'application/json'};
+    const headers = { 'content-type': 'application/json', };
     //console.log(user, 'login data von frontend')
     const params = new HttpParams().append("username", user.username ).append("password", user.password)
     return this.http.post<UserJwt>(this.logInUrl, user, {headers,params})
   }
 
-  userLogOut(token: string){
-    const headers = { 'content-type': 'application/json'};
-    //return this.http.post<String>(this.logOutUrl, token, {headers})
+  userLogOut(){
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
   }
 }
