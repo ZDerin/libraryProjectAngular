@@ -34,12 +34,15 @@ export class VerwaltelesewunschlisteComponent {
 
   uploadFile() {
     if(this.fileToUpload !== null){
-      this.lesewunschlistService.postFile(this.fileToUpload).subscribe(data => {
-        window.alert("Deine Lesewunschliste vom Goodreads wurde erfolgreich hinzugefügt!")
-        this.router.navigate(['/home']);
-      }, error => {
-        console.log(error);
-        window.alert("Deine Lesewunschliste vom Goodreads konnte nicht hinzugefügt werden!");
+      this.lesewunschlistService.postFile(this.fileToUpload).subscribe({
+          next : data => {
+            window.alert("Deine Lesewunschliste vom Goodreads wurde erfolgreich hinzugefügt!")
+            this.router.navigate(['/home']);
+          }
+      , error : msg => {
+          console.log(msg);
+          window.alert("Deine Lesewunschliste vom Goodreads konnte nicht hinzugefügt werden!");
+        }
       });
     } else {
       window.alert("Es gibt keine Datei hochzuladen!")

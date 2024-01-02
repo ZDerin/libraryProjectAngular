@@ -54,22 +54,19 @@ export class RegistrationComponent {
           email: newUserData.email!,
           password: newUserData.password1!
         }
-        this.userdataService.registerNewUser(userToRegister).subscribe(
-          response => {
-            //console.log('Registration successful:', response);
+        this.userdataService.registerNewUser(userToRegister).subscribe({
+          next: response => {
             window.alert("Die Registrierung war erfolgreich!");
-            this.router.navigate(['/log'])
-
-
-          },
-          (error) => {
-            console.error('Error during registration:', error);
-            if(error.error.text.includes("nutzer_username_key")){
+            this.router.navigate(['/log'])},
+          error : msg => {
+            console.log('Error during registration:', msg);
+            if(msg.error.text.includes("nutzer_username_key")){
               window.alert("Dieser Benutzername gehört bereits jemand anderem!")
-            } else if (error.error.text.includes("nutzer_email_key")){
+            } else if (msg.error.text.includes("nutzer_email_key")){
               window.alert("Diese Email Adresse gehört bereits jemand anderem!")
             }
-          })
+          }
+        })
     } else {
       window.alert('Es ist ein Fehler aufgetreten! Bitte überprüfe deine Eingaben.')
     }
