@@ -11,6 +11,9 @@ p{
   color: hsl(240, 100%, 20%);
 
 }
+.section{
+  padding-top: 0;
+}
 
 button{
 
@@ -25,6 +28,7 @@ button{
   overflow: hidden;
   z-index: 1;
   font-family: 'Montserrat', sans-serif;
+
 }
 
 .button:after {

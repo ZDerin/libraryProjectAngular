@@ -46,8 +46,14 @@ export class BuecherService {
         titel: 'Tintenherz',
         autor: 'Cornelia Funke',
       },
+      {
+        id: 1,
+        cover: '/assets/tintenherz.jpg',
+        titel: 'Tintenherz',
+        autor: 'Cornelia Funke',
+      },
     ];
 
- 
+
   }
 }
