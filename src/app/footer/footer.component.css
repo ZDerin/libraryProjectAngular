@@ -21,15 +21,23 @@ ul {
 
 .socials a {
   font-size: 24px;
+  color: #1d3e77;
 }
-
+.socials a:hover{
+  color:rgba(29, 62, 119, 0.5);
+}
+.brandname{
+  color: #1d3e77;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
 .links {
   gap: 10px;
 }
 
 .legal {
-  font-size: 12px;
-  margin: 0;
+  color: #1d3e77;
+
 }
 
 svg {
@@ -76,4 +84,5 @@ section {
   .links {
     gap: 20px;
   }
+
 }

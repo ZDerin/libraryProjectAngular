@@ -32,7 +32,6 @@ p{
 }
 
 .buttons {
-  margin-top: 50px;
   text-align: center;
   border-radius: 30px;
 }
@@ -44,7 +43,7 @@ p{
   --numOfBlobs: 4;
   z-index: 1;
   position: relative;
-  padding: 20px 46px;
+  padding: 20px 40px;
   margin-bottom: 30px;
   text-align: center;
   color: #0505A9;

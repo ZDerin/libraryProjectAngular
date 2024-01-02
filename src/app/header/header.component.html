@@ -1,10 +1,12 @@
 <div class="section">
   <div class="container is-fluid">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav  class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <img src="assets/1.png" width="100px" height="50px" alt="Logo">
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <i class="fa-solid fa-bars fa-xl" style="color: #1d3e77;"></i>
+      <img src="assets/1.png" width="100px" height="50px" alt="Logo" class="logo" id="logo">
+      <img src="assets/Gif%20ohne%20Titel%20(1).gif" width="100px" height="50px" alt="Logo" class="gif" id="gif">
+      <a (click)="toggleBurger()" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <i  *ngIf="!burgerIsOpen" class="fa-solid fa-bars fa-xl" style="color: #1d3e77;"></i>
+        <i  *ngIf="burgerIsOpen" class="fa-solid fa-xmark fa-xl" style="color: #1d3e77;"></i>
       </a>
     </div>
     <div id="navbarBasicExample" class="navbar-menu">
