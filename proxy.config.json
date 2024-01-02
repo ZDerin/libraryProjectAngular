@@ -7,5 +7,11 @@
   "/login" : {
     "target": "http://localhost:8080",
     "secure": false
+  },
+  "/readingListImport" : {
+    "target": "http://localhost:8080"
+  },
+  "/addBookToRead" : {
+    "target": "http://localhost:8080"
   }
 }

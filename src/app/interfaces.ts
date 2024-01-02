@@ -15,3 +15,9 @@ export interface UserJwt {
   token:string,
   roles:string
 }
+
+export interface Book {
+  isbn: string,
+  title: string,
+  author: string
+}

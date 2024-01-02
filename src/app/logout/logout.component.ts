@@ -10,11 +10,4 @@ import {UserdataService} from "../userdata.service";
 })
 export class LogoutComponent {
 
-  constructor(private userdataService : UserdataService) {
-  }
-  logout() {
-    const token = localStorage.getItem('token')
-    console.log(token);
-    this.userdataService.userLogOut(token!)
-  }
 }

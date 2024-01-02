@@ -13,7 +13,11 @@ import {LoginComponent} from "./login/login.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FooterComponent, HeaderComponent, StartseiteComponent, HauptseiteComponent, AvailabilityComponent, HttpClientModule, LoginComponent],
+  imports: [CommonModule, RouterOutlet,
+    FooterComponent, HeaderComponent,
+    StartseiteComponent, HauptseiteComponent,
+    AvailabilityComponent, HttpClientModule,
+    LoginComponent],
 
 
   templateUrl: './app.component.html',
