@@ -65,8 +65,16 @@
     <div class="columns has-text-centered is-multiline is-mobile" *ngFor="let batch of batchesOfBooks;">
       <div class="columns has-text-centered is-multiline is-mobile book-row">
           <div class="column is-4-mobile is-4-tablet is-4-desktop" *ngFor="let book of batch; let i = index">
-            <div class="cover">
+            <div class="book book-row">
               <img src="{{ book.cover }}" alt="{{ book.titel }}">
+              <div class="back" [ngStyle]="{'background-image': 'url(' + book.cover + ')', 'background-size': 'cover'  }"></div>
+              <div class="page6"></div>
+              <div class="page5"></div>
+              <div class="page4"></div>
+              <div class="page3"></div>
+              <div class="page2"></div>
+              <div class="page1"></div>
+              <div class="front" [ngStyle]="{'background-image': 'url(' + book.cover + ')', 'background-size': 'cover'  }"></div>
             </div>
           </div>
       </div>

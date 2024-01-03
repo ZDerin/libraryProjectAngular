@@ -32,14 +32,11 @@
 
       <div class="navbar-end">
           <div class="buttons">
-            <a *ngIf="currentUser === null" class="button nav navbar-item" href="http://localhost:4200/register">
-             <p class="sign">Registrieren</p>
+            <a *ngIf="currentUser === null" class=" nav navbar-item" href="http://localhost:4200/log">
+              <a class="sign">Einloggen</a>
             </a>
-            <a *ngIf="currentUser === null" class="button nav navbar-item" href="http://localhost:4200/log">
-              <p class="sign">Einloggen</p>
-            </a>
-            <a *ngIf="currentUser" class="button nav navbar-item" href="http://localhost:4200/logout" (click) = 'logout()'>
-              <p class="sign">Logout</p>
+            <a *ngIf="currentUser" class=" nav navbar-item" href="http://localhost:4200/logout" (click) = 'logout()'>
+              <a class="sign">Logout</a>
             </a>
           </div>
         </div>

@@ -1,16 +1,33 @@
-<form *ngIf="currentUser === null" [formGroup]="loginForm" (ngSubmit)="login()">
-  <label for="username"> Benutzername:
-    <input type="text" id="username" formControlName="username">
-  </label>
-  <label for="password"> Passwort:
-    <input type='password' id="password" formControlName="password">
-  </label>
-
-  <div>
-    <div *ngIf="formControls.username.errors?.['required'] && isFormSubmitted"> Benutzername ist erforderlich </div>
-    <div *ngIf="formControls.password.errors?.['required'] && isFormSubmitted"> Passwort ist erforderlich </div>
+<div class="columns is-centered is-multiline">
+  <div class="column is-full">
+    <img src="/assets/Willkommen.png">
   </div>
+  <div class="column is-full">
+    <div class="container">
+    <form *ngIf="currentUser === null" [formGroup]="loginForm" (ngSubmit)="login()" class="box">
+      <div class="field">
+        <label class="label" for="username">Benutzername:</label>
+        <div class="control">
+          <input class="input" type="text" id="username" formControlName="username" placeholder="Benutzername">
+        </div>
+        <div *ngIf="formControls.username.errors?.['required'] && isFormSubmitted">Benutzername ist erforderlich</div>
+      </div>
 
-  <button type="submit">Login </button>
-</form>
+      <div class="field">
+        <label class="label" for="password">Passwort:</label>
+        <div class="control">
+          <input class="input" type='password' id="password" formControlName="password" placeholder="Passwort">
+        </div>
+        <div *ngIf="formControls.password.errors?.['required'] && isFormSubmitted">Passwort ist erforderlich</div>
+      </div>
 
+      <div class="field has-text-centered">
+        <div class="control">
+          <button class="button" type="submit">Login</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<br><br><br><br><br>
