@@ -55,10 +55,11 @@ export class RegistrationComponent {
           password: newUserData.password1!
         }
         this.userdataService.registerNewUser(userToRegister).subscribe({
-          next: response => {
+          next: (response) => {
             window.alert("Die Registrierung war erfolgreich!");
-            this.router.navigate(['/log'])},
-          error : msg => {
+            this.router.navigate(['/log'])
+          },
+          error : (msg) => {
             console.log('Error during registration:', msg);
             if(msg.error.text.includes("nutzer_username_key")){
               window.alert("Dieser Benutzername gehört bereits jemand anderem!")

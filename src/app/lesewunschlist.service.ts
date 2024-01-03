@@ -37,13 +37,6 @@ export class LesewunschlistService {
       'authorization': `Bearer ${localStorage.getItem('token')}`
     };
 
-    /*
-    //find the books in the reading wishlist
-    this.convertCsvFileToString(fileToUpload)
-      .then(result => result.split('\n').filter(item => item.includes('to-read')))
-      .then((bookList) => this.httpClient.post<any>(this.readingListImportUrl, JSON.stringify(bookList), {headers: headers})
-      )*/
-
     return from(
       this.convertCsvFileToString(fileToUpload)
         .then(result =>

@@ -15,7 +15,6 @@ export class UserdataService {
   registerNewUser(user: UserRegister){
     const headers = { 'content-type': 'application/json'};
     return this.http.post<any>(this.dbUrl, user, {headers})
-    // hab den Type aus UserRegister zur any geaendert. In Backend aus UUID zur Object.
   }
 
   userLogIn(user : UserLogin){

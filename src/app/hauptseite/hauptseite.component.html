@@ -31,12 +31,15 @@
     <div class="columns has-text-centered is-multiline is-mobile" *ngFor="let batch of batchesOfBooks;">
       <div class="columns has-text-centered is-multiline is-mobile book-row">
           <div class="column is-4-mobile is-4-tablet is-4-desktop" *ngFor="let book of batch; let i = index">
+            <p> {{book["author"]}}</p>
+            <p> {{book["title"]}}</p>
             <div class="cover">
-              <img src="{{ book.cover }}" alt="{{ book.titel }}">
+              <img src="{{ book.coverbild }}" alt="{{ book.title }}">
             </div>
           </div>
       </div>
       <img src="/assets/136kopie2.png" alt="Regal" class="regal-image" style="width: 120%; height: auto">
     </div>
+
   </div>
 </div>
