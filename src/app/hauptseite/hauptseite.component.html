@@ -4,81 +4,83 @@
     <p>Hier findest du deine Bücherliste, gefiltert nach deinem aktuellen Standort. Viel Spaß beim Stöbern!</p>
     <br><br><br>
 
-    <div class="columns is-flex has-text-centered is-centered">
-      <div class="column is-half-mobile is-mobile has-text-centered">
-    <div class="buttons is-flex is-flex-direction-column is-align-items-center">
-      <button class="blob-btn left">
-        Alle Bücher
-        <span class="blob-btn__inner">
-      <span class="blob-btn__blobs">
-        <span class="blob-btn__blob"></span>
-        <span class="blob-btn__blob"></span>
-        <span class="blob-btn__blob"></span>
-        <span class="blob-btn__blob"></span>
-      </span>
-    </span>
-      </button>
-      <br/>
-
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="animation">
-        <defs>
-          <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
-            <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
-          </filter>
-        </defs>
-      </svg>
-    </div>
+    <div class="columns is-mobile">
+      <div class="column is-flex is-flex-direction-row-reverse">
+        <div class="buttons">
+            <button class="blob-btn left">
+              Alle Bücher
+              <span class="blob-btn__inner">
+                <span class="blob-btn__blobs">
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                  <span class="blob-btn__blob"></span>
+                </span>
+              </span>
+            </button>
+          <br/>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="animation">
+            <defs>
+              <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+                <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+              </filter>
+            </defs>
+          </svg>
         </div>
-      <div class="column is-half-mobile is-mobile has-text-centered">
-    <div class="buttons is-flex is-flex-direction-column is-align-items-center">
-      <button class="blob-btn right">
-        Neuer Standort
-        <span class="blob-btn__inner">
-      <span class="blob-btn__blobs">
-        <span class="blob-btn__blob"></span>
-        <span class="blob-btn__blob"></span>
-        <span class="blob-btn__blob"></span>
-        <span class="blob-btn__blob"></span>
-      </span>
-    </span>
-      </button>
-      <br/>
-
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="animation">
-        <defs>
-          <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
-            <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
-          </filter>
-        </defs>
-      </svg>
+      </div>
+      <div class="column is-flex">
+        <div class="buttons">
+          <button class="blob-btn right">
+            Neuer Standort
+            <span class="blob-btn__inner">
+              <span class="blob-btn__blobs">
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+              </span>
+            </span>
+          </button>
+          <br/>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="animation">
+            <defs>
+              <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+                <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+              </filter>
+            </defs>
+          </svg>
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-  </div>
 
     <br><br>
 
-    <div class="columns has-text-centered is-multiline is-mobile" *ngFor="let batch of batchesOfBooks;">
-      <div class="columns has-text-centered is-multiline is-mobile book-row">
-          <div class="column is-4-mobile is-4-tablet is-4-desktop" *ngFor="let book of batch; let i = index">
-            <div class="book book-row">
-              <img src="{{ book.cover }}" alt="{{ book.titel }}">
-              <div class="back" [ngStyle]="{'background-image': 'url(' + book.cover + ')', 'background-size': 'cover'  }"></div>
-              <div class="page6"></div>
-              <div class="page5"></div>
-              <div class="page4"></div>
-              <div class="page3"></div>
-              <div class="page2"></div>
-              <div class="page1"></div>
-              <div class="front" [ngStyle]="{'background-image': 'url(' + book.cover + ')', 'background-size': 'cover'  }"></div>
+    <div class="columns has-text-centered is-multiline" *ngFor="let batch of batchesOfBooks;">
+      <div class="column">
+        <div class="columns has-text-centered is-mobile book-row">
+            <div class="column is-4-mobile is-4-tablet is-4-desktop" *ngFor="let book of batch; let i = index">
+              <div class="book">
+                <img src="{{ book.cover }}" alt="{{ book.titel }}">
+                <div class="back" [ngStyle]="{'background-image': 'url(' + book.cover + ')'}"></div>
+                <div class="page6">
+                  <h3>{{book.titel + '\n'}}</h3>
+                  <h4>{{book.autor}}</h4>
+                </div>
+                <div class="page5"></div>
+                <div class="page4"></div>
+                <div class="page3"></div>
+                <div class="page2"></div>
+                <div class="page1"></div>
+                <div class="front" [ngStyle]="{'background-image': 'url(' + book.cover + ')' }"></div>
+              </div>
             </div>
-          </div>
+        </div>
+        <img src="/assets/136kopie2.png" alt="Regal" class="regal-image" style="width: 120%; height: auto">
       </div>
-      <img src="/assets/136kopie2.png" alt="Regal" class="regal-image" style="width: 120%; height: auto">
     </div>
   </div>
-
+</div>

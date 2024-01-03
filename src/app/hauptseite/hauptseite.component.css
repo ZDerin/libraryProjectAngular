@@ -1,5 +1,7 @@
-
-
+h3, h4{
+  font-family: 'Work Sans', sans-serif;
+  margin-top: 10px;
+}
 .book-row {
   padding: 0 12% 0 12% !important;
   z-index: 2;
@@ -10,17 +12,20 @@
   z-index: 2;
   transform-style: preserve-3d;
   position: relative;
-  height: 300px;
   cursor: pointer;
   backface-visibility: visible;
   box-sizing: inherit;
-
-
+  height: 100%;
 }
+
+.front, .back {
+  background-size: cover;
+}
+
 .front, .back, .page1, .page2, .page3, .page4, .page5, .page6 {
   transform-style: preserve-3d;
   position: absolute;
-  width: 200px;
+  width: 100%;
   height: 100%;
   top: 0; left: 0;
   transform-origin: left center;
