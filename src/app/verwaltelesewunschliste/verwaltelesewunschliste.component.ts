@@ -37,24 +37,29 @@ export class VerwaltelesewunschlisteComponent {
     console.log(this.fileToUpload);
   }
 
-  upload() {
-    this.lesewunschlistService.postFile(this.fileToUpload!!).subscribe({
-      next : data => {
-        window.alert("Deine Lesewunschliste vom Goodreads wurde erfolgreich hinzugefügt!")
-        this.router.navigate(['/home']);
-      }
-      , error : msg => {
-        console.log(msg);
-        window.alert("Deine Lesewunschliste vom Goodreads konnte nicht hinzugefügt werden!");
-      }
-    });
+  uploadCsvFile() {
+    if(this.fileToUpload !== null){
+      this.lesewunschlistService.postFile(this.fileToUpload!!).subscribe({
+        next : data => {
+          window.alert("Deine Lesewunschliste vom Goodreads wurde erfolgreich hinzugefügt!")
+          this.router.navigate(['/home']);
+        }
+        , error : msg => {
+          console.log(msg);
+          window.alert("Deine Lesewunschliste vom Goodreads konnte nicht hinzugefügt werden!");
+        }
+      });
+    }else {
+      window.alert("Es gibt keine Datei hochzuladen!")
+    }
+
   }
 
   changeShowHelp() {
     this.showHelp = !this.showHelp;
   }
 
-  addToReadingWishlist() {
+  uploadOneBook() {
     const bookInfos= this.bookToReadForm.value;
     if(this.bookToReadForm.valid){
       const bookToAdd : Book = {
@@ -75,27 +80,4 @@ export class VerwaltelesewunschlisteComponent {
     }
   }
 
-  /*
-  submitGoodreadList() {
-    const fileToUpload: File | null = this.fileForm.get('file')!.value;
-    console.log(fileToUpload)
-
-    if(fileToUpload !== null){
-      this.lesewunschlistService.postFile(fileToUpload).subscribe({
-        next : data => {
-          window.alert("Deine Lesewunschliste vom Goodreads wurde erfolgreich hinzugefügt!")
-          this.router.navigate(['/home']);
-        }
-        , error : msg => {
-          console.log(msg);
-          window.alert("Deine Lesewunschliste vom Goodreads konnte nicht hinzugefügt werden!");
-        }
-      });
-    } else {
-      window.alert("Es gibt keine Datei hochzuladen!")
-    }
-  }*/
 }
-
-
-//http://www.goodreads.com/review_porter/export/${userid from goodreads- to be at mobile login}/goodreads_export.csv

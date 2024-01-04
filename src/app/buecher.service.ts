@@ -14,7 +14,6 @@ export class BuecherService {
   private allBooksUrl = "/showAllBooks";
 
   getStandortListe() {
-
     const headers = {
       'content-type': 'application/json',
       'authorization': `Bearer ${localStorage.getItem('token')}`
