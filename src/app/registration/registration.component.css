@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field {
+  margin-bottom: 1rem; /* Optional: Fügt einen Abstand zwischen den Feldern hinzu */
+}
+.box {
+  background-color: transparent;
+  border-radius: 6px;
+  box-shadow: none;
+  display: block;
+  padding: 1.25rem;
+  font-family: 'Work Sans', sans-serif;
+  color: hsl(240, 100%, 20%);
+}
+button{
+
+  border-radius: 50px;
+  margin-top:20px;
+  color: white;
+  width: 150px;
+  background:  #a8433c;
+  font-size: 1rem;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.button:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10rem;
+  z-index: -2;
+}
+
+.button:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #c1665e;
+  transition: all .3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+
+.button:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.button:hover:before {
+  width: 100%;
+}
+

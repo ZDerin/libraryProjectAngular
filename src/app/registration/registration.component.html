@@ -1,30 +1,58 @@
-<form *ngIf="localStorage.getItem('username') === null" [formGroup]="registrationForm" (ngSubmit)="register()">
-  <label for="username"> Benutzername:
-    <input type="text" id="username" formControlName="username">
-  </label>
-  <label for="email"> Email:
-    <input type="email" id="email" formControlName="email">
-  </label>
-  <label for="password1"> Passwort:
-    <input type='password' id="password1" formControlName="password1">
-  </label>
-  <label for="password2"> Wiederhole die Passwort:
-    <input type='password' id="password2" formControlName="password2">
-  </label>
-  <div>
-    <div *ngIf="formControls.username.errors?.['required'] && isFormSubmitted"> Benutzername ist erforderlich </div>
-    <div *ngIf="formControls.username.errors?.['minlength']">
-      Benutzername muss mindestens 2 Zeichen lang sein
-    </div>
-    <div *ngIf="formControls.email.errors?.['required'] && isFormSubmitted"> Email ist erforderlich </div>
-    <div *ngIf="formControls.email.errors?.['email']">
-      Ungültiges E-Mail-Format
-    </div>
-    <div *ngIf="(formControls.password1.errors?.['required'] || formControls.password2.errors?.['required']) && isFormSubmitted"> Passwort ist erforderlich </div>
-    <div *ngIf="formControls.password1.errors?.['minlength'] ||formControls.password2.errors?.['minlength']">
-      Passwort muss mindestens 6 Zeichen lang sein
-    </div>
+<div class="columns is-centered is-multiline">
+  <div class="column is-full">
+    <img src="/assets/Willkommen.png">
   </div>
+  <div class="column is-full">
+    <form *ngIf="localStorage.getItem('username') === null" [formGroup]="registrationForm" (ngSubmit)="register()" class="box">
+      <div class="container">
+        <div class="field">
+          <label class="label" for="username">Benutzername:</label>
+          <div class="control">
+            <input class="input" type="text" id="username" formControlName="username">
+          </div>
+          <div *ngIf="formControls.username.errors?.['required'] && isFormSubmitted">Benutzername ist erforderlich</div>
+          <div *ngIf="formControls.username.errors?.['minlength']">Benutzername muss mindestens 2 Zeichen lang sein</div>
+          <div *ngIf="errorTextBenutzer.length > 0">{{errorTextBenutzer}}</div>
+        </div>
 
-  <button type="submit"> Sign up </button>
-</form>
+        <div class="field">
+          <label class="label" for="email">Email:</label>
+          <div class="control">
+            <input class="input" type="email" id="email" formControlName="email">
+          </div>
+          <div *ngIf="formControls.email.errors?.['required'] && isFormSubmitted">Email ist erforderlich</div>
+          <div *ngIf="formControls.email.errors?.['email']">Ungültiges E-Mail-Format</div>
+          <div *ngIf="errorTextEmail.length > 0">{{errorTextEmail}}</div>
+
+        </div>
+
+        <div class="field">
+          <label class="label" for="password1">Passwort:</label>
+          <div class="control">
+            <input class="input" type='password' id="password1" formControlName="password1">
+          </div>
+          <div *ngIf="(formControls.password1.errors?.['required'] || formControls.password2.errors?.['required']) && isFormSubmitted">Passwort ist erforderlich</div>
+          <div *ngIf="formControls.password1.errors?.['minlength'] || formControls.password2.errors?.['minlength']">Passwort muss mindestens 6 Zeichen lang sein</div>
+          <div *ngIf="formControls.password1 !== formControls.password2 && isFormSubmitted">Passwörter stimmen nicht überein</div>
+        </div>
+
+        <div class="field">
+          <label class="label" for="password2">Wiederhole Passwort:</label>
+          <div class="control">
+            <input class="input" type='password' id="password2" formControlName="password2">
+          </div>
+        </div>
+      </div>
+
+      <div class="field has-text-centered">
+        <div class="control">
+          <button class="button" type="submit">Sign up</button>
+        </div>
+        <div *ngIf="errorTextBenutzer.length > 0 || errorTextEmail.length > 0">{{errorText}}</div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+

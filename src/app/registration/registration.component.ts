@@ -16,6 +16,9 @@ import {Router} from "@angular/router";
 export class RegistrationComponent {
   protected readonly localStorage = localStorage;
   isFormSubmitted:boolean = false;
+  errorTextBenutzer = "";
+  errorTextEmail = "";
+  errorText = "";
 
   /*
   registrationForm = this.formBuilder.group({
@@ -44,11 +47,8 @@ export class RegistrationComponent {
   register() {
     this.isFormSubmitted = true;
     const newUserData = this.registrationForm.value;
-
-    if(newUserData.password1 !== newUserData.password2){
-      window.alert('Die Passwörter sind nicht gleich!');
       //reset the form?
-    } else if((newUserData.password1 === newUserData.password2 ) && this.registrationForm.valid){
+    if((newUserData.password1 === newUserData.password2 ) && this.registrationForm.valid){
         const userToRegister : UserRegister = {
           username: newUserData.username!,
           email: newUserData.email!,
@@ -57,21 +57,24 @@ export class RegistrationComponent {
         this.userdataService.registerNewUser(userToRegister).subscribe({
           next: (response) => {
             window.alert("Die Registrierung war erfolgreich!");
-            this.router.navigate(['/log'])
+
+            this.router.navigate(['/log']);
+            this.errorTextEmail = "";
+            this.errorTextBenutzer = "";
+            this.errorText = "";
           },
-          error : (msg) => {
-            console.log('Error during registration:', msg);
+          error: msg => {
+            console.error('Error during registration:', msg);
+
             if(msg.error.text.includes("nutzer_username_key")){
-              window.alert("Dieser Benutzername gehört bereits jemand anderem!")
+              this.errorTextBenutzer = "Dieser Benutzername existiert bereits";
             } else if (msg.error.text.includes("nutzer_email_key")){
-              window.alert("Diese Email Adresse gehört bereits jemand anderem!")
+              this.errorTextEmail ="Diese Email Adresse existiert bereits"
             }
           }
         })
     } else {
-      window.alert('Es ist ein Fehler aufgetreten! Bitte überprüfe deine Eingaben.')
+      this.errorText ='Es ist ein Fehler aufgetreten! Bitte überprüfe deine Eingaben.'
     }
   }
-
-
 }
