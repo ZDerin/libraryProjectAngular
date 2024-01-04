@@ -57,21 +57,17 @@ export class RegistrationComponent {
         this.userdataService.registerNewUser(userToRegister).subscribe({
           next: response => {
             window.alert("Die Registrierung war erfolgreich!");
-
             this.router.navigate(['/log']);
             this.errorTextEmail = "";
             this.errorTextBenutzer = "";
             this.errorText = "";
-
-
           },
-          (error) => {
-            console.error('Error during registration:', error);
-            if(error.error.text.includes("nutzer_username_key")){
+          error: msg => {
+            console.error('Error during registration:', msg);
+            if(msg.error.text.includes("nutzer_username_key")){
               this.errorTextBenutzer = "Dieser Benutzername existiert bereits";
-            } else if (error.error.text.includes("nutzer_email_key")){
+            } else if (msg.error.text.includes("nutzer_email_key")){
               this.errorTextEmail ="Diese Email Adresse existiert bereits"
-
             }
           }
         })
