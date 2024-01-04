@@ -63,4 +63,6 @@ export class LoginComponent {
 
 
   }
+
+  protected readonly localStorage = localStorage;
 }

@@ -1,4 +1,4 @@
-import {Component, EventEmitter} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {UserdataService} from "../userdata.service";
 
@@ -9,12 +9,32 @@ import {UserdataService} from "../userdata.service";
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
-  currentUser: string|null  = localStorage.getItem('username');
-  constructor(private userdataService : UserdataService) {
+export class HeaderComponent implements AfterViewInit {
+  currentUser: string | null = localStorage.getItem('username');
+  burgerIsOpen: boolean = false;
+
+  constructor(private userdataService: UserdataService) {
   }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.toggleLogo();
+    }, 3000);
+  }
+
   logout() {
     this.userdataService.userLogOut();
   }
 
+  toggleLogo() {
+    const logo = document.getElementById("logo");
+    const gif = document.getElementById("gif");
+
+    logo!.classList.toggle("logo2");
+    gif!.classList.toggle("gif2");
+  }
+
+  toggleBurger() {
+    this.burgerIsOpen = !this.burgerIsOpen;
+  }
 }

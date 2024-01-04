@@ -8,6 +8,9 @@ import {HauptseiteComponent} from "./hauptseite/hauptseite.component";
 import {AvailabilityComponent} from "./availability/availability.component";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {LoginComponent} from "./login/login.component";
+import {RegistrationComponent} from "./registration/registration.component";
+import {BuchinfoComponent} from "./buchinfo/buchinfo.component";
+import {VerwaltelesewunschlisteComponent} from "./verwaltelesewunschliste/verwaltelesewunschliste.component";
 
 
 @Component({
@@ -17,7 +20,7 @@ import {LoginComponent} from "./login/login.component";
     FooterComponent, HeaderComponent,
     StartseiteComponent, HauptseiteComponent,
     AvailabilityComponent, HttpClientModule,
-    LoginComponent],
+    LoginComponent, RegistrationComponent, BuchinfoComponent, VerwaltelesewunschlisteComponent],
 
 
   templateUrl: './app.component.html',
