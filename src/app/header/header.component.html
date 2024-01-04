@@ -32,6 +32,9 @@
 
       <div class="navbar-end">
           <div class="buttons">
+            <a *ngIf="currentUser === null" class=" nav navbar-item" href="http://localhost:4200/register">
+              <a class="sign">Registrieren</a>
+            </a>
             <a *ngIf="currentUser === null" class=" nav navbar-item" href="http://localhost:4200/log">
               <a class="sign">Einloggen</a>
             </a>
