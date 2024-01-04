@@ -27,10 +27,10 @@ export class HauptseiteComponent implements OnInit{
     // Rufe den Service auf, um Mock-Daten zu erhalten
     this.buecherService.getStandortListe().subscribe({
       next: value => {
-        console.log(value)
+
         this.readingWishlist = value;
         console.log(this.readingWishlist.length)
-
+        console.log(value)
         while(this.readingWishlist.length) {
           this.batchesOfBooks.push(this.readingWishlist.splice(0,3))
         }

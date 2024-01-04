@@ -65,8 +65,8 @@
         <div class="columns has-text-centered is-mobile book-row">
             <div class="column is-4-mobile is-4-tablet is-4-desktop" *ngFor="let book of batch; let i = index">
               <div class="book">
-                <img src="{{ book.cover }}" alt="{{ book.titel }}">
-                <div class="back" [ngStyle]="{'background-image': 'url(' + book.cover + ')'}"></div>
+                <img src="{{book['coverbild']}}" alt="{{ book.titel }}">
+                <div class="back" [ngStyle]="{'background-image': 'url(' + book['coverbild'] + ')'}"></div>
                 <div class="page6">
                   <h3>{{book["title"] + '\n'}}</h3>
                   <h4>{{book["author"]}}</h4>
@@ -76,7 +76,7 @@
                 <div class="page3"></div>
                 <div class="page2"></div>
                 <div class="page1"></div>
-                <div class="front" [ngStyle]="{'background-image': 'url(' + book.cover + ')' }"></div>
+                <div class="front" [ngStyle]="{'background-image': 'url(' + book['coverbild'] + ')' }"></div>
               </div>
             </div>
         </div>
