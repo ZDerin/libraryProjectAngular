@@ -1,13 +1,25 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {UserRegister} from "./interfaces";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BuecherService {
 
-  constructor() { }
+  constructor(private http: HttpClient,
+              ) { }
 
-  getBooks() {
+  private bookUrl = "/showAvailableBooks";
+
+  getStandortListe() {
+
+    const headers = {
+      'content-type': 'application/json',
+      'authorization': `Bearer ${localStorage.getItem('token')}`
+    };
+    return this.http.get<any>(this.bookUrl, {headers})
+    /*
     return [
 
       {
@@ -52,7 +64,7 @@ export class BuecherService {
         titel: 'Tintenherz',
         autor: 'Cornelia Funke',
       },
-    ];
+    ];*/
 
 
   }

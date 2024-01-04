@@ -30,13 +30,18 @@ export class AvailabilityComponent {
     private http: HttpClient) {
   }
 
-  ngOnInit() {
+  //ngOnInit() {
     // this.standort = this.standortService.getStandort();
     // this.buecherTIDs = this.buecherService.getTIDs();
     //
     //   for (const buchTID of this.buecherTIDs) {
     //       this.sucheBuch(buchTID, this.standort);
     //   }
+
+ // }
+
+  ngOnInit() {
+    this.buecherService.getStandortListe();
   }
 
 // Funktion, um nach einem Buch in einer Bücherhalle zu suchen.

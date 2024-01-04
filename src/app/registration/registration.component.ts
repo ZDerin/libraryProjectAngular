@@ -55,8 +55,9 @@ export class RegistrationComponent {
           password: newUserData.password1!
         }
         this.userdataService.registerNewUser(userToRegister).subscribe({
-          next: response => {
+          next: (response) => {
             window.alert("Die Registrierung war erfolgreich!");
+
             this.router.navigate(['/log']);
             this.errorTextEmail = "";
             this.errorTextBenutzer = "";
@@ -64,6 +65,7 @@ export class RegistrationComponent {
           },
           error: msg => {
             console.error('Error during registration:', msg);
+
             if(msg.error.text.includes("nutzer_username_key")){
               this.errorTextBenutzer = "Dieser Benutzername existiert bereits";
             } else if (msg.error.text.includes("nutzer_email_key")){

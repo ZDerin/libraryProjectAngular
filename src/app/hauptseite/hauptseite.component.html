@@ -57,6 +57,7 @@
       </div>
     </div>
 
+
     <br><br>
 
     <div class="columns has-text-centered is-multiline" *ngFor="let batch of batchesOfBooks;">
@@ -67,8 +68,8 @@
                 <img src="{{ book.cover }}" alt="{{ book.titel }}">
                 <div class="back" [ngStyle]="{'background-image': 'url(' + book.cover + ')'}"></div>
                 <div class="page6">
-                  <h3>{{book.titel + '\n'}}</h3>
-                  <h4>{{book.autor}}</h4>
+                  <h3>{{book["title"] + '\n'}}</h3>
+                  <h4>{{book["author"}}</h4>
                 </div>
                 <div class="page5"></div>
                 <div class="page4"></div>
@@ -82,5 +83,6 @@
         <img src="/assets/136kopie2.png" alt="Regal" class="regal-image" style="width: 120%; height: auto">
       </div>
     </div>
+
   </div>
 </div>

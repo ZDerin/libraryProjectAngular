@@ -61,7 +61,12 @@ export class VerwaltelesewunschlisteComponent {
         title : bookInfos.title!,
         author: bookInfos.author!
       }
-      this.lesewunschlistService.addNewBookToWishlist(bookToAdd);
+      this.lesewunschlistService.addNewBookToWishlist(bookToAdd).subscribe({next: msg => {
+          console.log(msg)},
+          error: msg => {
+          console.log(msg)
+          }
+        });
       this.bookToReadForm.reset();
       window.alert("Buch wurde erfolgreich addiert!")
     } else {
