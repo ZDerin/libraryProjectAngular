@@ -16,5 +16,8 @@
   },
   "/showAvailableBooks" : {
     "target": "http://localhost:8080"
+  },
+  "/showAllBooks" : {
+    "target": "http://localhost:8080"
   }
 }
