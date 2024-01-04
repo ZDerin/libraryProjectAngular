@@ -54,10 +54,10 @@ export class RegistrationComponent {
           email: newUserData.email!,
           password: newUserData.password1!
         }
-        this.userdataService.registerNewUser(userToRegister).subscribe(
-          response => {
-            //console.log('Registration successful:', response);
+        this.userdataService.registerNewUser(userToRegister).subscribe({
+          next: response => {
             window.alert("Die Registrierung war erfolgreich!");
+
             this.router.navigate(['/log']);
             this.errorTextEmail = "";
             this.errorTextBenutzer = "";
@@ -71,8 +71,10 @@ export class RegistrationComponent {
               this.errorTextBenutzer = "Dieser Benutzername existiert bereits";
             } else if (error.error.text.includes("nutzer_email_key")){
               this.errorTextEmail ="Diese Email Adresse existiert bereits"
+
             }
-          })
+          }
+        })
     } else {
       this.errorText ='Es ist ein Fehler aufgetreten! Bitte überprüfe deine Eingaben.'
     }
