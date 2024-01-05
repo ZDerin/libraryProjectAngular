@@ -25,6 +25,7 @@ export class HauptseiteComponent implements OnInit{
               private ladevorgangService: LadevorgangService) {}
 
   currentUser: string|null = localStorage.getItem('username');
+  standort: string = "Zentralbibliothek";
 
   ngOnInit() {
     //this.readingWishlist = this.buecherService.getStandortListe();
@@ -42,7 +43,7 @@ export class HauptseiteComponent implements OnInit{
         this.ladevorgangService.hideLoader();
       },
       error: err => {
-        window.alert("Wunschlist konnte nicht erreicht werden!")
+        window.alert("Wunschliste konnte nicht erreicht werden!")
       }
     });
 

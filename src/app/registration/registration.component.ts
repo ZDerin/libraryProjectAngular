@@ -48,7 +48,9 @@ export class RegistrationComponent {
     this.isFormSubmitted = true;
     const newUserData = this.registrationForm.value;
       //reset the form?
-    if((newUserData.password1 === newUserData.password2 ) && this.registrationForm.valid){
+    if(newUserData.password1 !== newUserData.password2){
+      window.alert("Passwörter stimmen nicht überein!"); // bitte so lassen, nicht in Html!
+    }else if((newUserData.password1 === newUserData.password2 ) && this.registrationForm.valid){
         const userToRegister : UserRegister = {
           username: newUserData.username!,
           email: newUserData.email!,
