@@ -6,11 +6,13 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {Book} from "../interfaces";
 import {LesewunschlistService} from "../lesewunschlist.service";
 import {HttpClientModule} from "@angular/common/http";
+import {LadevorgangService} from "../ladevorgang.service";
+import {LadevorgangComponent} from "../ladevorgang/ladevorgang.component";
 
 @Component({
   selector: 'app-readingwishlist',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
+    imports: [CommonModule, ReactiveFormsModule, HttpClientModule, LadevorgangComponent],
   templateUrl: './verwaltelesewunschliste.component.html',
   styleUrl: './verwaltelesewunschliste.component.css'
 })
@@ -29,7 +31,8 @@ export class VerwaltelesewunschlisteComponent {
 })
 
   constructor(private router: Router,
-              private lesewunschlistService : LesewunschlistService) {
+              private lesewunschlistService : LesewunschlistService,
+              private ladevorgangService: LadevorgangService) {
   }
 
   handleFileInput(event: any) {
@@ -38,19 +41,22 @@ export class VerwaltelesewunschlisteComponent {
   }
 
   uploadCsvFile() {
+    this.ladevorgangService.showLoader();
     if(this.fileToUpload !== null){
       this.lesewunschlistService.postFile(this.fileToUpload!!).subscribe({
         next : data => {
-          window.alert("Deine Lesewunschliste vom Goodreads wurde erfolgreich hinzugefügt!")
+          this.ladevorgangService.hideLoader();
+          window.alert("Deine Goodreads Lesewunschliste wurde erfolgreich hinzugefügt!")
           this.router.navigate(['/home']);
         }
         , error : msg => {
           console.log(msg);
-          window.alert("Deine Lesewunschliste vom Goodreads konnte nicht hinzugefügt werden!");
+          this.ladevorgangService.hideLoader();
+          window.alert("Deine Goodreads Lesewunschliste konnte nicht hinzugefügt werden!");
         }
       });
     }else {
-      window.alert("Es gibt keine Datei hochzuladen!")
+      window.alert("Keine Datei vorhanden!")
     }
 
   }

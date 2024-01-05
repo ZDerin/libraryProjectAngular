@@ -32,7 +32,7 @@
       </div>
       <div class="column is-flex">
         <div class="buttons">
-          <button class="blob-btn right">
+          <a class="blob-btn right" href="http://localhost:4200/location">
             Neuer Standort
             <span class="blob-btn__inner">
               <span class="blob-btn__blobs">
@@ -42,7 +42,7 @@
                 <span class="blob-btn__blob"></span>
               </span>
             </span>
-          </button>
+          </a>
           <br/>
           <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="animation">
             <defs>
@@ -57,6 +57,7 @@
       </div>
     </div>
 
+    <app-ladevorgang></app-ladevorgang>
 
     <br><br>
 
@@ -70,7 +71,6 @@
                 <div class="page6">
                   <h3>{{book["title"] + '\n'}}</h3>
                   <h4>{{book["author"]}}</h4>
-                  <h4>{{book["coverbild"]}}</h4>
                 </div>
                 <div class="page5"></div>
                 <div class="page4"></div>
