@@ -1,10 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {LadevorgangService} from "../ladevorgang.service";
+import {CommonModule} from "@angular/common";
+
 
 @Component({
   selector: 'app-ladevorgang',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './ladevorgang.component.html',
   styleUrl: './ladevorgang.component.css'
 })

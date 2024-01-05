@@ -26,21 +26,24 @@
 
         </div>
 
+        <!-- bitte die Warnungen nicht ändern -->
         <div class="field">
           <label class="label" for="password1">Passwort:</label>
           <div class="control">
             <input class="input" type='password' id="password1" formControlName="password1">
           </div>
-          <div *ngIf="(formControls.password1.errors?.['required'] || formControls.password2.errors?.['required']) && isFormSubmitted">Passwort ist erforderlich</div>
-          <div *ngIf="formControls.password1.errors?.['minlength'] || formControls.password2.errors?.['minlength']">Passwort muss mindestens 6 Zeichen lang sein</div>
-          <div *ngIf="formControls.password1 !== formControls.password2 && isFormSubmitted">Passwörter stimmen nicht überein</div>
+          <div *ngIf="(formControls.password1.errors?.['required'] ) && isFormSubmitted">Passwort ist erforderlich</div>
+          <div *ngIf="formControls.password1.errors?.['minlength'] ">Passwort muss mindestens 6 Zeichen lang sein</div>
         </div>
 
+        <!-- bitte die Warnungen nicht ändern -->
         <div class="field">
           <label class="label" for="password2">Wiederhole Passwort:</label>
           <div class="control">
             <input class="input" type='password' id="password2" formControlName="password2">
           </div>
+          <div *ngIf=" formControls.password2.errors?.['required'] && isFormSubmitted">Passwort ist erforderlich</div>
+          <div *ngIf=" formControls.password2.errors?.['minlength']">Passwort muss mindestens 6 Zeichen lang sein</div>
         </div>
       </div>
 
