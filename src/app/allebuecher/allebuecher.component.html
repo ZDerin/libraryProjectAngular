@@ -69,6 +69,7 @@
               <img src="{{ book['coverbild'] }}" alt="{{ book['title'] }}">
               <div class="back" [ngStyle]="{'background-image': 'url(' + book['coverbild'] + ')'}"></div>
               <div class="page6">
+                <button type="button" class="remove-btn" (click)="removeTheBook(book)"> Löschen </button>
                 <h3>{{book["title"] + '\n'}}</h3>
                 <h4>{{book["author"]}}</h4>
                 <br>

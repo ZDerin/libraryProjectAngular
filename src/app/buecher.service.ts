@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {UserRegister} from "./interfaces";
+import {Book, BookToRemove, UserRegister} from "./interfaces";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BuecherService {
 
+
   constructor(private http: HttpClient,
               ) { }
 
-  private bookUrl = "/showAvailableBooks";
-  private allBooksUrl = "/showAllBooks";
+  private bookUrl: string  = "/showAvailableBooks";
+  private allBooksUrl: string  = "/showAllBooks";
+
 
   getStandortListe() {
     const headers = {
@@ -74,7 +76,6 @@ export class BuecherService {
         autor: 'Cornelia Funke',
       },
     ];*/
-
 
 
 }

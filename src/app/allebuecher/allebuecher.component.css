@@ -248,6 +248,11 @@ p{
   font-weight: bolder;
 }
 
+.remove-btn{
+  color: red;
+  z-index: -10;
+}
+
 @supports(filter: url('#goo')) {
   .blob-btn:hover .blob-btn__blob {
     transform: translateZ(0) scale(1.4);

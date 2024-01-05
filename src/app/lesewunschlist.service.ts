@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Book} from "./interfaces";
+import {Book, BookToRemove} from "./interfaces";
 import {HttpClient} from "@angular/common/http";
 import {from, switchMap} from "rxjs";
 
@@ -11,6 +11,7 @@ export class LesewunschlistService {
 
   private readingListImportUrl: string = '/readingListImport';
   private bookToReadUrl: string = '/addBookToRead';
+  private removeBookUrl: string = "/deleteBook";
 
   constructor(private http: HttpClient) { }
 
@@ -31,6 +32,14 @@ export class LesewunschlistService {
       'authorization': `Bearer ${localStorage.getItem('token')}`
     };
     return this.http.post<any>(this.bookToReadUrl, book, {headers})
+  }
+
+  removeTheBookFromRepo(book: BookToRemove) {
+    const headers = {
+      'content-type': 'application/json',
+      'authorization': `Bearer ${localStorage.getItem('token')}`
+    };
+    return this.http.post<any>(this.removeBookUrl, book, {headers})
   }
 
 }

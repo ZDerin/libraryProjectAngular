@@ -20,6 +20,9 @@
   "/showAllBooks" : {
     "target": "http://localhost:8080"
   },
+  "/deleteBook" : {
+  "target": "http://localhost:8080"
+  },
   "/getLocations" : {
     "target": "http://localhost:8080"
   }
