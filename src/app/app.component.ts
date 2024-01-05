@@ -11,6 +11,7 @@ import {LoginComponent} from "./login/login.component";
 import {RegistrationComponent} from "./registration/registration.component";
 import {BuchinfoComponent} from "./buchinfo/buchinfo.component";
 import {VerwaltelesewunschlisteComponent} from "./verwaltelesewunschliste/verwaltelesewunschliste.component";
+import {LadevorgangComponent} from "./ladevorgang/ladevorgang.component";
 
 
 @Component({
@@ -20,7 +21,9 @@ import {VerwaltelesewunschlisteComponent} from "./verwaltelesewunschliste/verwal
     FooterComponent, HeaderComponent,
     StartseiteComponent, HauptseiteComponent,
     AvailabilityComponent, HttpClientModule,
-    LoginComponent, RegistrationComponent, BuchinfoComponent, VerwaltelesewunschlisteComponent],
+    LoginComponent, RegistrationComponent,
+    BuchinfoComponent, VerwaltelesewunschlisteComponent,
+    LadevorgangComponent],
 
 
   templateUrl: './app.component.html',
