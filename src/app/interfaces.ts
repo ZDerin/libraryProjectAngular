@@ -21,3 +21,9 @@ export interface Book {
   title: string,
   author: string
 }
+
+export interface BookToRemove {
+  id: number,
+  title: string,
+  author: string
+}
