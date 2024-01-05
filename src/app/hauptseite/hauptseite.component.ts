@@ -30,10 +30,10 @@ export class HauptseiteComponent implements OnInit{
     this.ladevorgangService.showLoader();
     this.buecherService.getStandortListe().subscribe({
       next: value => {
-
         this.readingWishlist = value;
-        console.log(this.readingWishlist.length)
-        console.log(value)
+        console.table(this.readingWishlist)
+
+
         while(this.readingWishlist.length) {
           this.batchesOfBooks.push(this.readingWishlist.splice(0,3))
         }
@@ -43,13 +43,7 @@ export class HauptseiteComponent implements OnInit{
         window.alert("Wunschlist konnte nicht erreicht werden!")
       }
     });
-    /*
-    if(this.readingWishlist.length >0  && this.readingWishlist.length< 3){
-      this.batchesOfBooks = this.readingWishlist;
-    } else {
-
-      }*/
-
 
   }
+
 }

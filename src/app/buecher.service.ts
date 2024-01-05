@@ -11,14 +11,23 @@ export class BuecherService {
               ) { }
 
   private bookUrl = "/showAvailableBooks";
+  private allBooksUrl = "/showAllBooks";
 
   getStandortListe() {
-
     const headers = {
       'content-type': 'application/json',
       'authorization': `Bearer ${localStorage.getItem('token')}`
     };
     return this.http.get<any>(this.bookUrl, {headers})
+  }
+
+  getAllBooks(){
+    const headers = {
+      'content-type': 'application/json',
+      'authorization': `Bearer ${localStorage.getItem('token')}`
+    };
+    return this.http.get<any>(this.allBooksUrl, {headers})
+  }
     /*
     return [
 
@@ -67,5 +76,5 @@ export class BuecherService {
     ];*/
 
 
-  }
+
 }

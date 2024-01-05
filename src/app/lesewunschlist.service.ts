@@ -32,19 +32,15 @@ export class LesewunschlistService {
   }
 
   postFile(fileToUpload: File) {
+
+    const formData: FormData = new FormData();
+    formData.append('file', fileToUpload);
+
     const headers = {
-      'content-type': 'application/json',
       'authorization': `Bearer ${localStorage.getItem('token')}`
     };
-
-    return from(
-      this.convertCsvFileToString(fileToUpload)
-        .then(result =>
-          result.split('\n').filter(item => item.includes('to-read')))
-    ).pipe(
-      switchMap(bookList =>
-        this.http.post<any>(this.readingListImportUrl, JSON.stringify(bookList), {headers}))
-    );
+    console.log("in post file")
+    return this.http.post<any>(this.readingListImportUrl, formData, {headers})
   }
 
   addNewBookToWishlist(book: Book){

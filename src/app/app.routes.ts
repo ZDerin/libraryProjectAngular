@@ -5,7 +5,7 @@ import {StartseiteComponent} from "./startseite/startseite.component";
 import {LogoutComponent} from "./logout/logout.component";
 import {HauptseiteComponent} from "./hauptseite/hauptseite.component";
 import {VerwaltelesewunschlisteComponent} from "./verwaltelesewunschliste/verwaltelesewunschliste.component";
-import {AvailabilityComponent} from "./availability/availability.component";
+import {AllebuecherComponent} from "./allebuecher/allebuecher.component";
 
 export const routes: Routes = [
   {path: '' , component: StartseiteComponent},
@@ -14,4 +14,5 @@ export const routes: Routes = [
   {path: 'logout', component: LogoutComponent},
   {path: 'home', component: HauptseiteComponent},
   {path: 'readingwishlist', component: VerwaltelesewunschlisteComponent},
+  {path: 'allbooks', component: AllebuecherComponent}
 ];
