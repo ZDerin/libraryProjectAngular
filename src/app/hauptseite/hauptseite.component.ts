@@ -3,16 +3,18 @@ import {BuecherService} from "../buecher.service";
 import {CommonModule, NgForOf, NgIf} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import {LadevorgangService} from "../ladevorgang.service";
+import {LadevorgangComponent} from "../ladevorgang/ladevorgang.component";
 
 @Component({
   selector: 'app-hauptseite',
   standalone: true,
-  imports: [
-    NgForOf,
-    NgIf,
-    CommonModule,
-    HttpClientModule
-  ],
+    imports: [
+        NgForOf,
+        NgIf,
+        CommonModule,
+        HttpClientModule,
+        LadevorgangComponent
+    ],
   templateUrl: './hauptseite.component.html',
   styleUrl: './hauptseite.component.css'
 })
@@ -23,6 +25,7 @@ export class HauptseiteComponent implements OnInit{
               private ladevorgangService: LadevorgangService) {}
 
   currentUser: string|null = localStorage.getItem('username');
+  standort: string = "Zentralbibliothek";
 
   ngOnInit() {
     //this.readingWishlist = this.buecherService.getStandortListe();
@@ -37,10 +40,10 @@ export class HauptseiteComponent implements OnInit{
         while(this.readingWishlist.length) {
           this.batchesOfBooks.push(this.readingWishlist.splice(0,3))
         }
-        this.ladevorgangService.hideLoader(); //??????? hier wurde versucht, eine Ladeanimation einzufügen
+        this.ladevorgangService.hideLoader();
       },
       error: err => {
-        window.alert("Wunschlist konnte nicht erreicht werden!")
+        window.alert("Wunschliste konnte nicht erreicht werden!")
       }
     });
 

@@ -1,7 +1,7 @@
 <div class="section">
   <div class="container is-fluid">
     <h1>Hallo, {{currentUser}}!</h1>
-    <p>Hier findest du deine Bücherliste, gefiltert nach deinem aktuellen Standort. Viel Spaß beim Stöbern!</p>
+    <p>Hier findest du deine Bücherliste, gefiltert nach deinem aktuellen Standort {{standort}}. Viel Spaß beim Stöbern!</p>
     <br><br><br>
 
     <div class="columns is-mobile">
@@ -32,7 +32,9 @@
       </div>
       <div class="column is-flex">
         <div class="buttons">
-          <a class="blob-btn right" href="http://localhost:4200/">
+
+          <a class="blob-btn right" href="http://localhost:4200/location">
+
             Neuer Standort
             <span class="blob-btn__inner">
               <span class="blob-btn__blobs">
@@ -43,6 +45,7 @@
               </span>
             </span>
           </a>
+
           <br/>
           <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="animation">
             <defs>
@@ -68,6 +71,7 @@
                 </span>
               </span>
           </a>
+
           <br/>
           <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="animation">
             <defs>
@@ -82,6 +86,7 @@
       </div>
     </div>
 
+    <app-ladevorgang></app-ladevorgang>
 
     <br><br>
 
@@ -95,8 +100,14 @@
                 <div class="page6">
                   <h3>{{book["title"] + '\n'}}</h3>
                   <h4>{{book["author"]}}</h4>
-                  <h4>{{book["coverbild"]}}</h4>
-                </div>
+
+     
+
+                  <br>
+                  <br>
+                  <a class="button" href="{{book['standortlink']}}">Bücherhalle</a>               
+                  </div>
+
                 <div class="page5"></div>
                 <div class="page4"></div>
                 <div class="page3"></div>
