@@ -1,0 +1,15 @@
+<form [formGroup]="searchForm" (ngSubmit)="search()">
+    <div>
+        <label for="name">
+            Suche deine Bücherhalle
+        </label>
+        <input id="name" type="text" formControlName="search">
+
+        <button class="button" type="submit">Search</button>
+    </div>
+
+</form>
+
+<app-standorte
+    [displayedLocations]="search()">
+</app-standorte>
