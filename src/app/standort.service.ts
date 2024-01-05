@@ -22,7 +22,7 @@ export class StandortService {
     return ["Altona", "Barmbek", "Volksdorf"];
   }
 
-  getfilteredStandort(searchTerm : string, Standorte : string[]) : string [] {
-  return Standorte.filter(a => a.includes(searchTerm))
+  getfilteredStandort(searchTerm : string, standorte : string[]) : string [] {
+  return standorte.filter(a => a.toLowerCase().includes(searchTerm.toLowerCase()))
   }
 }
