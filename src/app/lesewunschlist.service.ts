@@ -39,6 +39,7 @@ export class LesewunschlistService {
       'content-type': 'application/json',
       'authorization': `Bearer ${localStorage.getItem('token')}`
     };
+
     return this.http.post<any>(this.removeBookUrl, book, {headers})
   }
 

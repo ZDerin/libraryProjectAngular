@@ -37,7 +37,7 @@ export class VerwaltelesewunschlisteComponent {
 
   handleFileInput(event: any) {
     this.fileToUpload=(event.target!).files[0];
-    console.log(this.fileToUpload);
+
   }
 
   uploadCsvFile() {

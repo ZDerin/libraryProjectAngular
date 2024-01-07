@@ -19,7 +19,6 @@ export class UserdataService {
 
   userLogIn(user : UserLogin){
     const headers = { 'content-type': 'application/json', };
-    //console.log(user, 'login data von frontend')
     const params = new HttpParams().append("username", user.username ).append("password", user.password)
     return this.http.post<UserJwt>(this.logInUrl, user, {headers,params})
   }

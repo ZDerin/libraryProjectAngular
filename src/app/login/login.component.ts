@@ -53,6 +53,7 @@ export class LoginComponent {
         console.log('Login successful:', response);
         localStorage.setItem("token", response.token);
         localStorage.setItem('username', response.username);
+        localStorage.setItem('standort', 'Zentralbibliothek');
         this.router.navigate(['/home']).then(response => {
           window.location.reload();
         });
@@ -60,8 +61,6 @@ export class LoginComponent {
       error => {
         window.alert("Einloggen Daten sind nicht richtig!")
       })
-
-
   }
 
   protected readonly localStorage = localStorage;

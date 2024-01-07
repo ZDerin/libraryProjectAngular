@@ -1,7 +1,42 @@
+<div>
+  <h3 class="actual-location"> Deine Aktuelle Standort ist: <span class="has-text-weight-semibold"> {{actualLocation}} </span></h3>
+<br>
+  <div class="column is-flex">
+<div class="buttons">
+  <a class="blob-btn right" href="http://localhost:4200/home">
+    Verfügbare Bücher
+    <span class="blob-btn__inner">
+              <span class="blob-btn__blobs">
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+              </span>
+            </span>
+  </a>
+  <br/>
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="animation">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7"
+                       result="goo"></feColorMatrix>
+        <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+      </filter>
+    </defs>
+  </svg>
+</div>
+</div>
+</div>
 
-
-<div class="column is-4-mobile is-4-tablet is-4-desktop" *ngFor="let standort of displayedLocations">
-    <div class="book">
-       <p>{{standort}}</p>
+<div class="all-locations-div">
+<div class="column is-12-mobile is-6-tablet" *ngFor="let standort of displayedLocations; let i = index">
+    <div class="standort">
+       <p>{{standort.name}}</p>
+      <button type="button"
+              (click)="saveLocation(standort.name); clickAnimation(i)"
+              class="location-btn"
+              [ngClass]="{'clicked': isClickedArr[i]}"> Wähle aus</button>
     </div>
+</div>
 </div>

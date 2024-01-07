@@ -151,6 +151,7 @@ p{
   transition: color 0.5s;
   cursor: pointer;
   border-radius: 30px;
+  max-width: 179px;
 }
 
 .blob-btn:before {
@@ -244,6 +245,11 @@ p{
 }
 
 .blob-btn.left {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bolder;
+}
+
+.blob-btn.right {
   font-family: 'Work Sans', sans-serif;
   font-weight: bolder;
 }

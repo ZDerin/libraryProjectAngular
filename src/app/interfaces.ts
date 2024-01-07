@@ -27,3 +27,8 @@ export interface BookToRemove {
   title: string,
   author: string
 }
+
+export interface Standort {
+  id: number,
+  name: string
+}
