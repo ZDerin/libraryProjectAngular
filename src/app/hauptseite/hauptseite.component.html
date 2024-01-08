@@ -62,7 +62,7 @@
 
     <br><br>
     <h5 *ngIf="batchesOfBooks.length === 0 && !ladevorgangService.isVisible">  Kein Buch von deiner Lesewunschliste ist in diesem Standort verfügbar </h5>
-    <div class="columns has-text-centered is-multiline" *ngFor="let batch of batchesOfBooks;">
+    <div class="columns has-text-centered is-multiline try-class" *ngFor="let batch of batchesOfBooks;">
       <div class="column">
         <div class="columns has-text-centered is-mobile book-row">
             <div class="column is-4-mobile is-4-tablet is-4-desktop" *ngFor="let book of batch; let i = index">

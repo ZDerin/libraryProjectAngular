@@ -358,3 +358,34 @@ font-family: 'Work Sans', sans-serif;
   }
 }*/
 
+/*
+.book{
+  padding: 0 4px;
+}
+
+.text{
+  font-size: 7px;
+  margin: 0;
+}
+.buecherhalle{
+  font-size: 7px;
+}
+
+@media (max-width: 430px) {
+  .try-class{
+    min-width: 360px;
+    margin-left: -15%;
+    margin-right: 15%;
+  }
+
+  .text{
+    font-size: 8px;
+    margin-bottom: 2px;
+  }
+  .buecherhalle{
+    font-size: 8px;
+    padding:1px 1px;
+  }
+}
+
+*/

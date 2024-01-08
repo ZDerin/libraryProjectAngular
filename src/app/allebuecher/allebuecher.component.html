@@ -61,7 +61,7 @@
 
     <br><br>
 
-    <div class="columns has-text-centered is-multiline" *ngFor="let batch of batchesOfBooks;">
+    <div class="columns has-text-centered is-multiline try-class" *ngFor="let batch of batchesOfBooks;">
       <div class="column">
         <div class="columns has-text-centered is-mobile book-row">
           <div class="column is-4-mobile is-4-tablet is-4-desktop" *ngFor="let book of batch; let i = index">
@@ -70,8 +70,8 @@
               <div class="back" [ngStyle]="{'background-image': 'url(' + book['coverbild'] + ')'}"></div>
               <div class="page6">
                 <button type="button" class="remove-btn" (click)="removeTheBook(book)"> Löschen </button>
-                <h3>{{book["title"] + '\n'}}</h3>
-                <h4>{{book["author"]}}</h4>
+                <h3 class="text">{{book["title"] + '\n'}}</h3>
+                <h4 class="text">{{book["author"]}}</h4>
               </div>
               <div class="page5"></div>
               <div class="page4"></div>
