@@ -1,10 +1,12 @@
 
+/*
 .locations-biggest-div{
   margin-left: 100px;
 }
-
+*/
 .search-div{
-  min-width: 432px;
+  /*min-width: 432px;*/
+  text-align: center;
 }
 
 .search-text{

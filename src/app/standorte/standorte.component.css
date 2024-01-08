@@ -6,6 +6,7 @@
 .animation {
   display: none;
 }
+
 .blob-btn {
   --numOfBlobs: 4;
   z-index: 1;
@@ -124,10 +125,10 @@
   }
 }
 
-
 .actual-location{
   color: #0505A9;
   font-size: 1.2rem;
+  text-align: center;
 }
 
 .standort{
@@ -143,7 +144,7 @@
   background: #0505A9;
   color: whitesmoke;
   border: none;
- padding: 5px 10px;
+  padding: 5px 10px;
   border-radius: 17px;
   cursor: pointer;
   justify-self: left;
