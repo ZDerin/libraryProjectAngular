@@ -2,3 +2,19 @@
   padding-left: 30px;
   padding-right: 20px;
 }
+
+h4{
+  margin-bottom: 20px;
+}
+
+@media (  min-width: 500px ) {
+  .div-with-img{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  img{
+    max-width: 300px;
+  }
+}
