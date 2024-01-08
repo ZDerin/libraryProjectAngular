@@ -1,15 +1,14 @@
+<div class="locations-biggest-div">
 <form [formGroup]="searchForm" (ngSubmit)="search()">
-    <div>
-        <label for="name">
-            Suche deine Bücherhalle
-        </label>
-        <input id="name" type="text" formControlName="search">
-
-        <button class="button" type="submit">Search</button>
-    </div>
-
+  <div class="search-div">
+    <label for="search-bar" class="search-text">
+      Suche deine Bücherhalle
+    </label>
+    <input id="search-bar" type="text" formControlName="search">
+  </div>
 </form>
-
+<br>
 <app-standorte
-    [displayedLocations]="search()">
+  [displayedLocations]="search()">
 </app-standorte>
+</div>

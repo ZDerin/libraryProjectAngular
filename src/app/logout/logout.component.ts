@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserdataService} from "../userdata.service";
 
 @Component({
@@ -8,6 +8,9 @@ import {UserdataService} from "../userdata.service";
   templateUrl: './logout.component.html',
   styleUrl: './logout.component.css'
 })
-export class LogoutComponent {
+export class LogoutComponent implements OnInit{
+  ngOnInit(): void {
+    localStorage.removeItem('standort')
+  }
 
 }

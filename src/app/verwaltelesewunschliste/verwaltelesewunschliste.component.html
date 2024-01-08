@@ -37,4 +37,20 @@
   </label>
   <button type="submit" > Füge es deiner Lesewunschliste hinzu</button>
 </form>
+<br>
+<h3> ODER </h3>
+<br>
+
+<label for="goodreadsfile"> Wenn du deine Bücher als CSV Datei vorhanden hast:<br>
+  <input type="file" id="goodreadsfile" accept=".csv" (change)="handleFileInput($event)"  >
+</label>
+<button type="button" (click)="uploadCsvFile()"> Hochladen </button>
+<br>
+<button *ngIf="!showHelp" type="button" (click)="changeShowHelp()"> Hast du keine CSV Datei, klick für Hilfe </button>
+<label *ngIf="showHelp" for="goodreadsfile"> Geh durch diese Link zur Export Seite von Goodreads and klick auf Export Library und danach auf darunter liegende "Your export from...", dann findest du deine CSV Datei in Downloads<br>
+  <a href="https://www.goodreads.com/review/import" target="_blank"> to Goodreads Export Seite</a>
+</label>
+
+
+
 <app-ladevorgang></app-ladevorgang>

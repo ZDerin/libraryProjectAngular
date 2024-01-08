@@ -8,6 +8,7 @@ import {VerwaltelesewunschlisteComponent} from "./verwaltelesewunschliste/verwal
 import {AllebuecherComponent} from "./allebuecher/allebuecher.component";
 import {StandorteComponent} from "./standorte/standorte.component";
 import {FilteredStandorteComponent} from "./filtered-standorte/filtered-standorte.component";
+import {UeberunsComponent} from "./ueberuns/ueberuns.component";
 
 export const routes: Routes = [
   {path: '' , component: StartseiteComponent},
@@ -17,5 +18,6 @@ export const routes: Routes = [
   {path: 'home', component: HauptseiteComponent},
   {path: 'readingwishlist', component: VerwaltelesewunschlisteComponent},
   {path: 'allbooks', component: AllebuecherComponent},
-  {path: 'location', component: FilteredStandorteComponent}
+  {path: 'location', component: FilteredStandorteComponent},
+  {path: 'about', component: UeberunsComponent}
 ];

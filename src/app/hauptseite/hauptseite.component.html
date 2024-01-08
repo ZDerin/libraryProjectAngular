@@ -1,7 +1,7 @@
 <div class="section">
   <div class="container is-fluid">
     <h1>Hallo, {{currentUser}}!</h1>
-    <p>Hier findest du deine Bücherliste, gefiltert nach deinem aktuellen Standort {{standort}}. Viel Spaß beim Stöbern!</p>
+    <p>Hier findest du deine Bücherliste, gefiltert nach deinem aktuellen Standort <span class="standort-text">{{standort}} </span>. Viel Spaß beim Stöbern!</p>
     <br><br><br>
 
     <div class="columns is-mobile">
@@ -30,11 +30,9 @@
           </svg>
         </div>
       </div>
-      <div class="column is-flex">
+      <div class="column is-flex is-flex-direction-row-reverse">
         <div class="buttons">
-
-          <a class="blob-btn right" href="http://localhost:4200/location">
-
+          <a class="blob-btn left" href="http://localhost:4200/location">
             Neuer Standort
             <span class="blob-btn__inner">
               <span class="blob-btn__blobs">
@@ -89,7 +87,7 @@
     <app-ladevorgang></app-ladevorgang>
 
     <br><br>
-
+    <h5 *ngIf="batchesOfBooks.length === 0 && !ladevorgangService.isVisible">  Kein Buch von deiner Lesewunschliste ist in diesem Standort verfügbar </h5>
     <div class="columns has-text-centered is-multiline" *ngFor="let batch of batchesOfBooks;">
       <div class="column">
         <div class="columns has-text-centered is-mobile book-row">
@@ -104,7 +102,6 @@
                   <br>
                   <a class="button" href="{{book['standortLink']}}" target="_blank">Bücherhalle</a>
                   </div>
-
                 <div class="page5"></div>
                 <div class="page4"></div>
                 <div class="page3"></div>

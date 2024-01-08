@@ -4,6 +4,8 @@ import {CommonModule, NgForOf, NgIf} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import {LadevorgangService} from "../ladevorgang.service";
 import {LadevorgangComponent} from "../ladevorgang/ladevorgang.component";
+import {StandorteComponent} from "../standorte/standorte.component";
+import {StandortService} from "../standort.service";
 
 @Component({
   selector: 'app-hauptseite',
@@ -13,7 +15,8 @@ import {LadevorgangComponent} from "../ladevorgang/ladevorgang.component";
         NgIf,
         CommonModule,
         HttpClientModule,
-        LadevorgangComponent
+        LadevorgangComponent,
+        StandorteComponent
     ],
   templateUrl: './hauptseite.component.html',
   styleUrl: './hauptseite.component.css'
@@ -21,21 +24,24 @@ import {LadevorgangComponent} from "../ladevorgang/ladevorgang.component";
 export class HauptseiteComponent implements OnInit{
   readingWishlist: any[] = [];
   batchesOfBooks: any[] = [];
-  constructor(private buecherService: BuecherService,
-              private ladevorgangService: LadevorgangService) {}
-
   currentUser: string|null = localStorage.getItem('username');
-  standort: string = "Zentralbibliothek";
+  standort: string = "";
+  constructor(private buecherService: BuecherService,
+              protected ladevorgangService: LadevorgangService,
+              private standortService : StandortService) {}
+
+
 
   ngOnInit() {
+    this.standort = localStorage.getItem('standort')!;
+
     //this.readingWishlist = this.buecherService.getStandortListe();
     // Rufe den Service auf, um Mock-Daten zu erhalten
     this.ladevorgangService.showLoader();
+
     this.buecherService.getStandortListe().subscribe({
       next: value => {
         this.readingWishlist = value;
-        console.table(this.readingWishlist)
-
 
         while(this.readingWishlist.length) {
           this.batchesOfBooks.push(this.readingWishlist.splice(0,3))

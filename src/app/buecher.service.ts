@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Book, BookToRemove, UserRegister} from "./interfaces";
 
 @Injectable({
@@ -20,7 +20,8 @@ export class BuecherService {
       'content-type': 'application/json',
       'authorization': `Bearer ${localStorage.getItem('token')}`
     };
-    return this.http.get<any>(this.bookUrl, {headers})
+    const params = new HttpParams().append("standort", localStorage.getItem('standort')!);
+    return this.http.get<any>(this.bookUrl, {headers,params})
   }
 
   getAllBooks(){

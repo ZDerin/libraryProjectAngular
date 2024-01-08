@@ -246,7 +246,13 @@ p{
 .blob-btn.left {
 font-family: 'Work Sans', sans-serif;
   font-weight: bolder;
+  max-width: 150px;
 }
+
+.standort-text{
+  font-weight: bold;
+}
+
 
 @supports(filter: url('#goo')) {
   .blob-btn:hover .blob-btn__blob {
