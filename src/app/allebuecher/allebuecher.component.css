@@ -270,3 +270,18 @@ p{
     transform: translateZ(0) scale(1.4);
   }
 }
+
+
+/*
+.buttons-to-take-left{
+  margin-left: -40px;
+}
+
+@media (min-width: 460px) and (max-width: 550px) {
+  .blob-btn{
+    text-align: center;
+    background-color: #3f3f5a;
+    width: 160px;
+  }
+}
+*/

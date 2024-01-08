@@ -345,4 +345,16 @@ font-family: 'Work Sans', sans-serif;
   }
 }
 
+/*
+.buttons-to-take-left{
+  margin-left: -32px;
+}
+
+@media (min-width: 460px) and (max-width: 550px) {
+  .blob-btn{
+    text-align: center;
+    background-color: #3f3f5a;
+    width: 160px;
+  }
+}*/
 

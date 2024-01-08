@@ -37,6 +37,10 @@ h3{
   outline: none;
 }
 
+.isbn-bar{
+  margin-left: 9px;
+}
+
 .title-bar{
   margin-left: 25px;
 }
