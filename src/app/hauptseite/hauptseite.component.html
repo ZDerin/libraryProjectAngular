@@ -7,7 +7,7 @@
     <div class="columns is-mobile">
       <div class="column is-flex is-flex-direction-row-reverse">
         <div class="buttons">
-            <a class="blob-btn left" href="http://localhost:4200/allbooks">
+            <a class="blob-btn right" href="http://localhost:4200/allbooks">
               Alle Bücher
               <span class="blob-btn__inner">
                 <span class="blob-btn__blobs">
@@ -56,32 +56,6 @@
           </svg>
         </div>
       </div>
-      <div class="column is-flex is-flex-direction-row-reverse">
-        <div class="buttons">
-          <a class="blob-btn left" href="http://localhost:4200/readingwishlist">
-            Neue Bücher
-            <span class="blob-btn__inner">
-                <span class="blob-btn__blobs">
-                  <span class="blob-btn__blob"></span>
-                  <span class="blob-btn__blob"></span>
-                  <span class="blob-btn__blob"></span>
-                  <span class="blob-btn__blob"></span>
-                </span>
-              </span>
-          </a>
-
-          <br/>
-          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="animation">
-            <defs>
-              <filter id="goo">
-                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
-                <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
-              </filter>
-            </defs>
-          </svg>
-        </div>
-      </div>
     </div>
 
     <app-ladevorgang></app-ladevorgang>
@@ -114,6 +88,5 @@
         <img src="/assets/136kopie2.png" alt="Regal" class="regal-image" style="width: 120%; height: auto">
       </div>
     </div>
-
   </div>
 </div>

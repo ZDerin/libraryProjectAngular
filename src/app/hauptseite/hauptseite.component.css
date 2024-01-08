@@ -2,6 +2,7 @@ h3, h4{
   font-family: 'Work Sans', sans-serif;
   margin-top: 10px;
 }
+
 .book-row {
   padding: 0 12% 0 12% !important;
   z-index: 2;
@@ -16,6 +17,11 @@ h3, h4{
   backface-visibility: visible;
   box-sizing: inherit;
   height: 100%;
+}
+
+.book img {
+  height: auto;
+  width: 100%;
 }
 
 .front, .back {
@@ -246,7 +252,6 @@ p{
 .blob-btn.left {
 font-family: 'Work Sans', sans-serif;
   font-weight: bolder;
-  max-width: 150px;
 }
 
 .standort-text{
