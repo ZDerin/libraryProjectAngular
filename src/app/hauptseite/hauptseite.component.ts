@@ -35,8 +35,6 @@ export class HauptseiteComponent implements OnInit{
   ngOnInit() {
     this.standort = localStorage.getItem('standort')!;
 
-    //this.readingWishlist = this.buecherService.getStandortListe();
-    // Rufe den Service auf, um Mock-Daten zu erhalten
     this.ladevorgangService.showLoader();
 
     this.buecherService.getStandortListe().subscribe({

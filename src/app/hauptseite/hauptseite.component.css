@@ -253,6 +253,10 @@ p{
 font-family: 'Work Sans', sans-serif;
   font-weight: bolder;
 }
+.blob-btn.right {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bolder;
+}
 
 .standort-text{
   font-weight: bold;

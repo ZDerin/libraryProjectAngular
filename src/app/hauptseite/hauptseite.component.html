@@ -1,13 +1,13 @@
 <div class="section">
   <div class="container is-fluid">
     <h1>Hallo, {{currentUser}}!</h1>
-    <p>Hier findest du deine Bücherliste, gefiltert nach deinem aktuellen Standort <span class="standort-text">{{standort}} </span>. Viel Spaß beim Stöbern!</p>
+    <p>Hier findest du deine Bücherliste, gefiltert nach deinem aktuellen Standort <span class="standort-text">{{standort}}</span>. Viel Spaß beim Stöbern!</p>
     <br><br><br>
 
     <div class="columns is-mobile">
       <div class="column is-flex is-flex-direction-row-reverse">
         <div class="buttons">
-            <a class="blob-btn right" href="http://localhost:4200/allbooks">
+            <a class="blob-btn left" href="http://localhost:4200/allbooks">
               Alle Bücher
               <span class="blob-btn__inner">
                 <span class="blob-btn__blobs">
@@ -30,9 +30,9 @@
           </svg>
         </div>
       </div>
-      <div class="column is-flex is-flex-direction-row-reverse">
+      <div class="column is-flex">
         <div class="buttons">
-          <a class="blob-btn left" href="http://localhost:4200/location">
+          <a class="blob-btn right" href="http://localhost:4200/location">
             Neuer Standort
             <span class="blob-btn__inner">
               <span class="blob-btn__blobs">
@@ -72,7 +72,6 @@
                 <div class="page6">
                   <h3>{{book["title"] + '\n'}}</h3>
                   <h4>{{book["author"]}}</h4>
-                  <br>
                   <br>
                   <a class="button" href="{{book['standortLink']}}" target="_blank">Bücherhalle</a>
                   </div>
