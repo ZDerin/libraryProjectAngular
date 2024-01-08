@@ -1,7 +1,7 @@
 <div class="section">
   <div class="container is-fluid">
     <h1>Hallo, {{currentUser}}!</h1>
-    <p>Hier findest du deine Bücherliste, gefiltert nach deinem aktuellen Standort <span class="standort-text">{{standort}} </span>. Viel Spaß beim Stöbern!</p>
+    <p>Hier findest du deine Bücherliste, gefiltert nach deinem aktuellen Standort <span class="standort-text">{{standort}}</span>. Viel Spaß beim Stöbern!</p>
     <br><br><br>
 
     <div class="columns is-mobile">
@@ -56,34 +56,6 @@
           </svg>
         </div>
       </div>
-      <!--
-      <div class="column is-flex is-flex-direction-row-reverse">
-        <div class="buttons">
-          <a class="blob-btn left" href="http://localhost:4200/readingwishlist">
-            Neue Bücher
-            <span class="blob-btn__inner">
-                <span class="blob-btn__blobs">
-                  <span class="blob-btn__blob"></span>
-                  <span class="blob-btn__blob"></span>
-                  <span class="blob-btn__blob"></span>
-                  <span class="blob-btn__blob"></span>
-                </span>
-              </span>
-          </a>
-
-          <br/>
-          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="animation">
-            <defs>
-              <filter id="goo">
-                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
-                <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
-              </filter>
-            </defs>
-          </svg>
-        </div>
-      </div>
-      -->
     </div>
 
     <app-ladevorgang></app-ladevorgang>
@@ -98,11 +70,9 @@
                 <img src="{{ book['coverbild'] }}" alt="{{ book['title'] }}">
                 <div class="back" [ngStyle]="{'background-image': 'url(' + book['coverbild'] + ')'}"></div>
                 <div class="page6">
-                  <h3>{{book["title"] + '\n'}}</h3>
-                  <h4>{{book["author"]}}</h4>
-                  <br>
-                  <br>
-                  <a class="button" href="{{book['standortLink']}}" target="_blank">Bücherhalle</a>
+                  <h3 class="text">{{book["title"] + '\n'}}</h3>
+                  <h3 class="text">{{book["author"]}}</h3>
+                  <a class="button buecherhalle" href="{{book['standortLink']}}" target="_blank">Bücherhalle</a>
                   </div>
                 <div class="page5"></div>
                 <div class="page4"></div>

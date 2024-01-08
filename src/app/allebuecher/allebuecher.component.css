@@ -18,6 +18,12 @@ h3, h4{
   height: 100%;
 }
 
+
+.book img {
+  height: auto;
+  width: 100%;
+}
+
 .front, .back {
   background-size: cover;
 }
