@@ -1,6 +1,7 @@
 h3, h4{
   font-family: 'Work Sans', sans-serif;
   margin-top: 10px;
+  color: #1d3e77;
 }
 
 .book-row {
@@ -261,6 +262,15 @@ font-family: 'Work Sans', sans-serif;
 .standort-text{
   font-weight: bold;
 }
+.buecherhalle{
+  margin-top: 2px;
+  color: #0505A9;
+  border-color: #0505A9;
+}
+.buecherhalle:hover{
+  border-color: #1d3e77;
+  color: #1d3e77;
+}
 
 
 @supports(filter: url('#goo')) {
@@ -268,3 +278,71 @@ font-family: 'Work Sans', sans-serif;
     transform: translateZ(0) scale(1.4);
   }
 }
+
+@media (min-width:320px)  {
+  .text{
+    font-size: 8px;
+    margin-bottom: 2px;
+  }
+  .buecherhalle{
+    font-size: 8px;
+    padding:1px 1px;
+  }
+}
+
+@media (min-width:550px)
+{
+  .text{
+  font-size: 12px;
+    margin-bottom: 10px;
+}
+  .buecherhalle{
+    font-size: 12px;
+    padding:1px 1px;
+
+  }
+}
+@media (min-width:641px)
+{ .text{
+  font-size: 16px;
+  margin-bottom: 13px;
+
+}
+  .buecherhalle{
+    font-size: 16px;
+    padding:1px 1px;
+
+  }
+}
+@media (min-width:961px)
+{ .text{
+  font-size: 22px;
+  margin-bottom: 13px;
+}
+  .buecherhalle{
+    font-size: 22px;
+    padding:1px 1px;
+  }
+}
+@media (min-width:1025px)
+{ .text{
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+  .buecherhalle{
+    font-size: 25px;
+    padding:1px 1px;
+  }
+}
+@media (min-width:1281px)
+{ .text{
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+  .buecherhalle{
+    font-size: 30px;
+    padding:1px 1px;
+  }
+}
+
+
