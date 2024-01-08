@@ -17,7 +17,6 @@ import {Standort} from "../interfaces";
 })
 export class StandorteComponent {
     actualLocation: string |null = localStorage.getItem('standort');
-
     content: Standort [] = [];
     @Input() displayedLocations : Standort [] | undefined;
     isClickedArr: boolean[] = [];
