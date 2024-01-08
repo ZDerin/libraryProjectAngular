@@ -1,0 +1,207 @@
+*,
+*:before,
+*:after{
+  box-sizing: border-box;
+}
+
+h3{
+  margin-bottom: 15px;
+}
+
+#verwalte-lesewunschliste-div{
+  text-align: center;
+}
+
+.submit-btn {
+  cursor: pointer;
+}
+
+.hilfe-btn{
+  cursor: pointer;
+}
+
+.labels{
+  margin: 3px;
+}
+
+.search-bar{
+  border-radius: 17px;
+  border: solid 2px #0505A9;
+  margin-left: 5px;
+  cursor: text;
+  padding: 5px 10px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.search-bar:focus{
+  outline: none;
+}
+
+.title-bar{
+  margin-left: 25px;
+}
+
+.author-bar{
+  margin-left: 15px;
+}
+
+.buttons {
+  text-align: center;
+  border-radius: 30px;
+}
+
+.animation {
+  display: none;
+}
+
+.blob-btn {
+  --numOfBlobs: 4;
+  z-index: 1;
+  position: relative;
+  padding: 20px 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #0505A9;
+  font-size: 16px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  transition: color 0.5s;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.blob-btn:before {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #0505A9;
+  border-radius: 30px;
+}
+
+.blob-btn:after {
+  content: "";
+  z-index: -2;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s 0.2s;
+  border-radius: 30px;
+}
+
+.blob-btn:hover {
+  color: #FFFFFF;
+  border-radius: 30px;
+}
+
+.blob-btn:hover:after {
+  transition: all 0.3s;
+  left: 0;
+  top: 0;
+  border-radius: 30px;
+}
+
+.blob-btn__inner {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background: #ffffff;
+}
+
+.blob-btn__blobs {
+  position: relative;
+  display: block;
+  height: 100%;
+  filter: url('#goo');
+}
+
+.blob-btn__blob {
+  position: absolute;
+  top: 2px;
+  width: calc(100% / var(--numOfBlobs));
+  height: 100%;
+  background: #0505A9;
+  border-radius: 100%;
+  transform: translate3d(0, 150%, 0) scale(1.7);
+  transition: transform 0.45s;
+}
+
+.blob-btn__blob:nth-child(1) {
+  left: 0;
+  transition-delay: 0s;
+}
+
+.blob-btn__blob:nth-child(2) {
+  left: calc((2 - 1) * (120% / var(--numOfBlobs)));
+  transition-delay: calc((2 - 1) * 0.08s);
+}
+
+.blob-btn__blob:nth-child(3) {
+  left: calc((3 - 1) * (120% / var(--numOfBlobs)));
+  transition-delay: calc((3 - 1) * 0.08s);
+}
+
+.blob-btn__blob:nth-child(4) {
+  left: calc((4 - 1) * (120% / var(--numOfBlobs)));
+  transition-delay: calc((4 - 1) * 0.08s);
+}
+
+.blob-btn:hover .blob-btn__blob {
+  transform: translateZ(0) scale(1.7);
+}
+
+.blob-btn.right {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bolder;
+}
+
+@supports(filter: url('#goo')) {
+  .blob-btn:hover .blob-btn__blob {
+    transform: translateZ(0) scale(1.4);
+  }
+}
+
+.choose-file-btn{
+  display: none;
+}
+
+.choose-file-btn.changed{
+  padding: 10px 15px;
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+}
+.custom-file-label{
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.book-emoji{
+  font-size: 3rem;
+}
+
+.goodread-help-pics{
+  max-width: 250px;
+}
+
+.goodreads-help-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
