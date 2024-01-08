@@ -1,56 +1,111 @@
-<h3>Hier kannst du deine Goodreads Lesewunschliste importieren oder deine vorhandene Liste erweitern</h3>
-<br>
 
-<!--
-<form [formGroup]="fileForm" (ngSubmit)="submitGoodreadList()" >
-  <label for="goodreadsfile"> Wenn du deine Bücher als CSV Datei vorhanden hast:<br>
-    <input type="file" name="goodreadsfile" id="goodreadsfile" accept=".csv" formControlName="file"  >
+<div id="verwalte-lesewunschliste-div">
+<h3>Hier kannst du deine vorhandene Liste manuell erweitern oder deine Goodreads Lesewunschliste importieren</h3>
+<br>
+<h3> deine Lesewunschliste manuell erweitern: </h3>
+<form [formGroup]="bookToReadForm" (ngSubmit)="uploadOneBook()" class="is-flex is-flex-direction-column is-align-items-center">
+  <label for="isbn" class="labels"> ISBN13:
+    <input type="text" id="isbn" formControlName="isbn" class="search-bar">
   </label>
-  <button type="submit"> Lade diese Datei hoch </button>
+  <label for="title" class="labels"> Titel:
+    <input type="text" id="title" formControlName="title" class="search-bar title-bar">
+  </label>
+  <label for="author" class="labels"> Autor:
+    <input type="text" id="author" formControlName="author" class="search-bar author-bar">
+  </label>
+  <div class="column is-flex is-justify-content-center">
+    <div class="buttons">
+      <button type="submit" class="blob-btn"> Füge es deiner Lesewunschliste hinzu
+        <span class="blob-btn__inner">
+              <span class="blob-btn__blobs">
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+              </span>
+            </span>
+      </button>
+      <br/>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="animation">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7"
+                           result="goo"></feColorMatrix>
+            <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+          </filter>
+        </defs>
+      </svg>
+    </div>
+  </div>
 </form>
--->
 
-<label for="goodreadsfile">Hast du bereits eine CSV Datei:<br>
-  <input type="file" id="goodreadsfile" accept=".csv" (change)="handleFileInput($event)"  >
-</label>
-<button type="button" (click)="uploadCsvFile()"> Hochladen </button>
-
-<br>
-<br>
-<button *ngIf="!showHelp" type="button" (click)="changeShowHelp()"> Hast du noch keine CSV Datei, klick hier für Hilfe </button>
-<label *ngIf="showHelp" for="goodreadsfile"> Gehe mithilfe dieses Links zu Goodreads, klicke dort auf 'Export Library', danach auf "Your export from...". Nun findest du die CSV Datei in deinen Downloads<br>
-  <a href="https://www.goodreads.com/review/import" target="_blank"> zur Goodreads Export Seite</a>
-</label>
-<br>
-<br>
 <h3> ODER </h3>
-<h3> deine Lesewunschliste manuell erweitern </h3>
-<form [formGroup]="bookToReadForm" (ngSubmit)="uploadOneBook()">
-  <label for="isbn"> ISBN13:
-    <input type="text" id="isbn" formControlName="isbn">
-  </label>
-  <label for="title"> Titel:
-    <input type="text" id="title" formControlName="title">
-  </label>
-  <label for="author"> Autor:
-    <input type="text" id="author" formControlName="author">
-  </label>
-  <button type="submit" > Füge es deiner Lesewunschliste hinzu</button>
-</form>
-<br>
-<h3> ODER </h3>
-<br>
 
-<label for="goodreadsfile"> Wenn du deine Bücher als CSV Datei vorhanden hast:<br>
-  <input type="file" id="goodreadsfile" accept=".csv" (change)="handleFileInput($event)"  >
+<h3>Hast du bereits eine CSV Datei:</h3>
+  <br>
+  <label for="goodreadsfile" class="custom-file-label" [ngClass]="{'changed': isWithFile}">  {{buttonInhalt}}
+  <input type="file" id="goodreadsfile" accept=".csv" (change)="handleFileInput($event); confirmUpload()"  class="choose-file-btn">
+  </label>
+
+  <div class="column is-flex is-justify-content-center">
+    <div class="buttons">
+      <button type="button" (click)="uploadCsvFile()" class="blob-btn"> Hochladen
+        <span class="blob-btn__inner">
+              <span class="blob-btn__blobs">
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+              </span>
+            </span>
+      </button>
+      <br/>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="animation">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7"
+                           result="goo"></feColorMatrix>
+            <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+          </filter>
+        </defs>
+      </svg>
+    </div>
+  </div>
+<br>
+  <div *ngIf="!showHelp" class="column is-flex is-justify-content-center">
+    <div class="buttons">
+      <button type="button" (click)="changeShowHelp()" class="blob-btn"> Hast du noch keine CSV Datei, klick hier für Hilfe
+        <span class="blob-btn__inner">
+              <span class="blob-btn__blobs">
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+                <span class="blob-btn__blob"></span>
+              </span>
+            </span>
+      </button>
+      <br/>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="animation">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7"
+                           result="goo"></feColorMatrix>
+            <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+          </filter>
+        </defs>
+      </svg>
+    </div>
+  </div>
+
+<label *ngIf="showHelp" for="goodreadsfile" class="goodreads-help-div"> Gehe mithilfe dieser Bücher zu Goodreads : <span class="book-emoji"><a href="https://www.goodreads.com/review/import" target="_blank"> 📚 </a> </span>
+  <br> klicke dort auf 'Export Library' <span><img src="/assets/goodreads-export.png" alt="goodread-info" class="goodread-help-pics"> </span>
+  <br> danach auf "Your export from..." <span><img src="assets/goodreads-export.png" alt="goodread-info"  class="goodread-help-pics"> </span>
+  <br>Nun findest du die CSV Datei in deinen Downloads<br>
 </label>
-<button type="button" (click)="uploadCsvFile()"> Hochladen </button>
-<br>
-<button *ngIf="!showHelp" type="button" (click)="changeShowHelp()"> Hast du keine CSV Datei, klick für Hilfe </button>
-<label *ngIf="showHelp" for="goodreadsfile"> Geh durch diese Link zur Export Seite von Goodreads and klick auf Export Library und danach auf darunter liegende "Your export from...", dann findest du deine CSV Datei in Downloads<br>
-  <a href="https://www.goodreads.com/review/import" target="_blank"> to Goodreads Export Seite</a>
-</label>
-
-
 
 <app-ladevorgang></app-ladevorgang>
+
+</div>

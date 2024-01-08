@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FileuploadService} from "../fileupload.service";
 import {Router} from "@angular/router";
-import {CommonModule} from "@angular/common";
+import {CommonModule, NgOptimizedImage} from "@angular/common";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Book} from "../interfaces";
 import {LesewunschlistService} from "../lesewunschlist.service";
@@ -12,17 +12,15 @@ import {LadevorgangComponent} from "../ladevorgang/ladevorgang.component";
 @Component({
   selector: 'app-readingwishlist',
   standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, HttpClientModule, LadevorgangComponent],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, LadevorgangComponent, NgOptimizedImage],
   templateUrl: './verwaltelesewunschliste.component.html',
   styleUrl: './verwaltelesewunschliste.component.css'
 })
 export class VerwaltelesewunschlisteComponent {
   fileToUpload: File|null = null;
   showHelp: boolean = false;
-
-  fileForm= new FormGroup({
-    file: new FormControl( null ,Validators.required)
-  })
+  isWithFile: boolean = false;
+  buttonInhalt: string = "Wähle Datei aus"
 
   bookToReadForm = new FormGroup({
     isbn : new FormControl('', [Validators.required, Validators.minLength(13), Validators.maxLength(13)]),
@@ -37,7 +35,6 @@ export class VerwaltelesewunschlisteComponent {
 
   handleFileInput(event: any) {
     this.fileToUpload=(event.target!).files[0];
-
   }
 
   uploadCsvFile() {
@@ -86,4 +83,12 @@ export class VerwaltelesewunschlisteComponent {
     }
   }
 
+  protected readonly File = File;
+
+
+
+  confirmUpload() {
+    this.isWithFile = !this.isWithFile;
+    this.buttonInhalt = this.fileToUpload?.name!;
+  }
 }
