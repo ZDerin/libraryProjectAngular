@@ -4,9 +4,9 @@
     <p>Hier findest du deine Bücherliste, gefiltert nach deinem aktuellen Standort <span class="standort-text">{{standort}}</span>. Viel Spaß beim Stöbern!</p>
     <br><br><br>
 
-    <div class="columns is-mobile">
+    <div class="columns is-mobile buttons-to-take-left ">
       <div class="column is-flex is-flex-direction-row-reverse">
-        <div class="buttons">
+        <div class="buttons ">
             <a class="blob-btn left" href="http://localhost:4200/allbooks">
               Alle Bücher
               <span class="blob-btn__inner">
@@ -62,7 +62,7 @@
 
     <br><br>
     <h5 *ngIf="batchesOfBooks.length === 0 && !ladevorgangService.isVisible">  Kein Buch von deiner Lesewunschliste ist in diesem Standort verfügbar </h5>
-    <div class="columns has-text-centered is-multiline" *ngFor="let batch of batchesOfBooks;">
+    <div class="columns has-text-centered is-multiline try-class" *ngFor="let batch of batchesOfBooks;">
       <div class="column">
         <div class="columns has-text-centered is-mobile book-row">
             <div class="column is-4-mobile is-4-tablet is-4-desktop" *ngFor="let book of batch; let i = index">

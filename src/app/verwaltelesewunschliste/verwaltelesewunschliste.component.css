@@ -2,6 +2,7 @@
 *:before,
 *:after{
   box-sizing: border-box;
+  color: #1d3e77;
 }
 
 h3{
@@ -35,6 +36,10 @@ h3{
 
 .search-bar:focus{
   outline: none;
+}
+
+.isbn-bar{
+  margin-left: 9px;
 }
 
 .title-bar{

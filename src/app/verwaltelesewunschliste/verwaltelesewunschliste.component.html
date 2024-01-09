@@ -4,13 +4,13 @@
 <br>
 <h3> deine Lesewunschliste manuell erweitern: </h3>
 <form [formGroup]="bookToReadForm" (ngSubmit)="uploadOneBook()" class="is-flex is-flex-direction-column is-align-items-center">
-  <label for="isbn" class="labels"> ISBN13:
-    <input type="text" id="isbn" formControlName="isbn" class="search-bar">
+  <label for="isbn" class="labels isbn-label"> <span style="color: #0505A9; font-weight:500"> ISBN13:</span>
+    <input type="text" id="isbn" formControlName="isbn" class="search-bar isbn-bar">
   </label>
-  <label for="title" class="labels"> Titel:
+  <label for="title" class="labels"> <span style="color: #0505A9; font-weight:500"> Titel: </span>
     <input type="text" id="title" formControlName="title" class="search-bar title-bar">
   </label>
-  <label for="author" class="labels"> Autor:
+  <label for="author" class="labels"> <span style="color: #0505A9; font-weight:500"> Autor: </span>
     <input type="text" id="author" formControlName="author" class="search-bar author-bar">
   </label>
   <div class="column is-flex is-justify-content-center">
@@ -39,7 +39,7 @@
     </div>
   </div>
 </form>
-
+<br>
 <h3> ODER </h3>
 
 <h3>Hast du bereits eine CSV Datei:</h3>

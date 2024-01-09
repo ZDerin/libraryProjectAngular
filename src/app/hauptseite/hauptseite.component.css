@@ -147,7 +147,7 @@ p{
   --numOfBlobs: 4;
   z-index: 1;
   position: relative;
-  padding: 20px 40px;
+  padding: 10px 20px;
   margin-bottom: 30px;
   text-align: center;
   color: #0505A9;
@@ -290,6 +290,17 @@ font-family: 'Work Sans', sans-serif;
   }
 }
 
+@media (min-width: 411px) {
+.buttons{
+  flex-wrap: nowrap;
+}
+
+  .blob-btn.left{
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+}
+
 @media (min-width:550px)
 {
   .text{
@@ -345,4 +356,60 @@ font-family: 'Work Sans', sans-serif;
   }
 }
 
+/*von Zeynep*/
 
+.buttons-to-take-left{
+
+}
+/*
+@media (min-width: 460px) and (max-width: 550px) {
+  .blob-btn{
+    text-align: center;
+    background-color: #3f3f5a;
+  }
+}*/
+
+.book{
+  padding: 0 4px;
+}
+
+@media (max-width: 430px) {
+  .try-class{
+    min-width: 360px;
+    margin-left: -15%;
+    margin-right: 15%;
+  }
+
+  .text{
+    font-size: 7px;
+    margin-bottom: 2px;
+  }
+  .buecherhalle{
+    font-size: 7px;
+    padding:1px 1px;
+  }
+}
+
+@media (min-width: 471px) {
+  .blob-btn.right{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+
+}
+
+@media (min-width: 511px) {
+  .blob-btn {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
+
+  @media (min-width: 900px){
+    .blob-btn{
+      padding-right: 40px;
+      padding-left: 40px;
+    }
+}
+/*von Zeynep*/
