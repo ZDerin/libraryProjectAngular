@@ -25,5 +25,8 @@
   },
   "/getLocations" : {
     "target": "http://localhost:8080"
+  },
+  "/getZitat" : {
+    "target": "http://localhost:8080"
   }
 }

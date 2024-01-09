@@ -16,6 +16,6 @@ export class ZitatService {
     const headers = {
       'content-type': 'application/json',
       'authorization:' : `Bearer ${localStorage.getItem('token')}`};
-    return this.http.get<Zitat>(this.getZitatUrl, {headers})
+    return this.http.get<any>(this.getZitatUrl, {headers})
   }
 }

@@ -50,7 +50,7 @@ export class AllebuecherComponent implements OnInit{
 
       },
       error: err => {
-        window.alert("Wunschlist konnte nicht erreicht werden!")
+        window.alert("Wunschliste konnte nicht erreicht werden!")
       }
     })
   }
