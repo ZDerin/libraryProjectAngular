@@ -1,3 +1,17 @@
-.logout-div{
+.logout-div {
   height: 100vh;
+}
+
+p {
+  font-size: 1.3rem;
+  margin-top: 10px;
+  color: hsl(240, 100%, 20%);
+}
+
+h1{
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-top: 30px;
+  font-family: 'Work Sans', sans-serif;
+  color: hsl(240, 100%, 20%);
 }
