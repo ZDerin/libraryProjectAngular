@@ -69,16 +69,14 @@ section {
   justify-content: flex-end;
   gap: 30px;
   padding-bottom: 80px;
-  padding-left: 60px;
-  /* padding-left weglöschen
-  text-align: center*/
+  text-align: center;
   width: 100%;
   z-index: 2;
 }
 
-/*ul.socials{
+ul.socials{
 justify-content: center;
-}*/
+}
 
 @media (width > 420px) {
   section {

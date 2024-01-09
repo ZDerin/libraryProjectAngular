@@ -146,7 +146,7 @@ p{
   --numOfBlobs: 4;
   z-index: 1;
   position: relative;
-  padding: 20px 40px;
+  padding: 10px 20px;
   margin-bottom: 30px;
   text-align: center;
   color: #0505A9;
@@ -157,7 +157,8 @@ p{
   transition: color 0.5s;
   cursor: pointer;
   border-radius: 30px;
-  max-width: 179px;
+  /*max-width: 179px;*/
+  width: 116px;
 }
 
 .blob-btn:before {
@@ -277,29 +278,23 @@ p{
 }
 
 
-/*
+/*von Zeynep*/
+
 .buttons-to-take-left{
-  margin-left: -40px;
+
 }
 
-@media (min-width: 460px) and (max-width: 550px) {
-  .blob-btn{
-    text-align: center;
-    background-color: #3f3f5a;
-    width: 160px;
-  }
-}
-*/
-
-/*
 .remove-btn{
   margin-top: 2px;
-  color: #0505A9;
-  border: 1px solid #0505A9;
+  margin-bottom: 5px;
+  background-color: whitesmoke;
+  color: darkred;
+  border: 1px solid darkred;
   border-radius: 5px;
   font-size: 8px;
   padding:3px 6px;
 }
+
 .remove-btn:hover{
   background-color: #1d3e77;
   color: whitesmoke;
@@ -309,10 +304,19 @@ p{
 .text{
   font-size: 7px;
   margin-bottom: 10px;
+  color: #1d3e77;
 }
 .book{
   padding: 0 4px;
 }
+
+/*
+@media (min-width: 404px) and (max-width: 550px) {
+  .blob-btn{
+    text-align: center;
+    background-color: #3f3f5a;
+  }
+}*/
 
 @media (max-width: 430px) {
   .try-class{
@@ -321,6 +325,12 @@ p{
     margin-right: 15%;
   }
 }
+/*
+@media (max-width: 521px) {
+  .blob-btn{
+    width: 170px;
+  }
+}*/
 @media (min-width:525px)
 {
   .text{
@@ -330,24 +340,36 @@ p{
   .remove-btn{
     font-size: 10px;
     padding:1px 1px;
-
   }
 }
 
 @media (min-width:555px)
-{
-  .text{
+{  .text{
     font-size: 11px;
     margin-bottom: 10px;
   }
   .remove-btn{
     font-size: 12px;
     padding:1px 1px;
+    margin-top: 7px;
+  }
+
+  .blob-btn.right{
+    width: 170px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .blob-btn.left{
+    padding-right: 20px;
+    padding-left: 20px;
+    width: 170px;
   }
 }
+
 @media (min-width:641px)
 { .text{
-  font-size: 15px;
+  font-size: 14px;
   margin-bottom: 13px;
 
 }
@@ -356,15 +378,33 @@ p{
     padding:1px 1px;
 
   }
+
+  .blob-btn.right{
+    width: 200px;
+  }
+
+  .blob-btn.left{
+    padding: 20px;
+    width: 200px;
+  }
+
 }
+@media (min-width:770px)
+{  .remove-btn{
+    margin-top: 15px;
+  }
+}
+
 @media (min-width:961px)
 { .text{
   font-size: 20px;
   margin-bottom: 13px;
+  margin-top: 10px;
 }
   .remove-btn{
     font-size: 22px;
     padding:1px 1px;
+    margin-top: 20px;
   }
 }
 @media (min-width:1025px)
@@ -387,4 +427,4 @@ p{
     padding:1px 1px;
   }
 }
-*/
+
