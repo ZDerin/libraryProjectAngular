@@ -32,3 +32,9 @@ export interface Standort {
   id: number,
   name: string
 }
+
+export interface Zitat {
+  id: number,
+  name: string,
+  zitat: string
+}
