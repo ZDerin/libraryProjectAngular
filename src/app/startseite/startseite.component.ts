@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import {AlertsComponent} from "../alerts/alerts.component";
 
 @Component({
   selector: 'app-startseite',
   standalone: true,
-  imports: [],
+  imports: [
+    AlertsComponent
+  ],
   templateUrl: './startseite.component.html',
   styleUrl: './startseite.component.css'
 })
