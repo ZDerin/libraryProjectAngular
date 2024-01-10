@@ -6,6 +6,7 @@ import {LadevorgangService} from "../ladevorgang.service";
 import {LadevorgangComponent} from "../ladevorgang/ladevorgang.component";
 import {StandorteComponent} from "../standorte/standorte.component";
 import {StandortService} from "../standort.service";
+import {AlertsService} from "../alerts.service";
 
 @Component({
   selector: 'app-hauptseite',
@@ -28,7 +29,8 @@ export class HauptseiteComponent implements OnInit{
   standort: string = "";
   constructor(private buecherService: BuecherService,
               protected ladevorgangService: LadevorgangService,
-              private standortService : StandortService) {}
+              private standortService : StandortService,
+              private alertsService : AlertsService) {}
 
 
 
@@ -47,7 +49,8 @@ export class HauptseiteComponent implements OnInit{
         this.ladevorgangService.hideLoader();
       },
       error: err => {
-        window.alert("Wunschliste konnte nicht erreicht werden!")
+        //window.alert("Wunschliste konnte nicht erreicht werden!")
+        this.alertsService.openDialog("Achtung!", "Wunschliste konnte nicht geladen werden! Bist du eingeloggt?")
       }
     });
 
