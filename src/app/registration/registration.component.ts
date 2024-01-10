@@ -5,6 +5,9 @@ import {RouterOutlet} from "@angular/router";
 import {UserdataService} from "../userdata.service";
 import {UserRegister} from "../interfaces";
 import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {AlertInhalteComponent} from "../alert-inhalte/alert-inhalte.component";
+import {AlertsService} from "../alerts.service";
 
 @Component({
   selector: 'app-registration',
@@ -37,7 +40,8 @@ export class RegistrationComponent {
 
   constructor(private formBuilder: FormBuilder,
               private userdataService : UserdataService,
-              private router : Router) {
+              private router : Router,
+              private alertsService: AlertsService) {
   }
 
   get formControls() {
@@ -49,7 +53,8 @@ export class RegistrationComponent {
     const newUserData = this.registrationForm.value;
       //reset the form?
     if(newUserData.password1 !== newUserData.password2){
-      window.alert("Passwörter stimmen nicht überein!"); // bitte so lassen, nicht in Html!
+      //window.alert("Passwörter stimmen nicht überein!"); // bitte so lassen, nicht in Html!
+      this.alertsService.openDialog("Achtung", "Passwörter stimmen nicht überein!")
     }else if((newUserData.password1 === newUserData.password2 ) && this.registrationForm.valid){
         const userToRegister : UserRegister = {
           username: newUserData.username!,
@@ -58,7 +63,8 @@ export class RegistrationComponent {
         }
         this.userdataService.registerNewUser(userToRegister).subscribe({
           next: (response) => {
-            window.alert("Die Registrierung war erfolgreich!");
+            // window.alert("Die Registrierung war erfolgreich!");
+            this.alertsService.openDialog("Juhu!", "Die Registrierung war erfolgreich!")
 
             this.router.navigate(['/log']);
             this.errorTextEmail = "";
