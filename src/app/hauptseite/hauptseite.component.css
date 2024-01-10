@@ -281,11 +281,11 @@ font-family: 'Work Sans', sans-serif;
 
 @media (min-width:320px)  {
   .text{
-    font-size: 8px;
+    font-size: 6px;
     margin-bottom: 2px;
   }
   .buecherhalle{
-    font-size: 8px;
+    font-size: 6px;
     padding:1px 1px;
   }
 }
@@ -304,54 +304,54 @@ font-family: 'Work Sans', sans-serif;
 @media (min-width:550px)
 {
   .text{
-  font-size: 12px;
+  font-size: 10px;
     margin-bottom: 10px;
 }
   .buecherhalle{
-    font-size: 12px;
+    font-size: 10px;
     padding:1px 1px;
 
   }
 }
 @media (min-width:641px)
 { .text{
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 13px;
 
 }
   .buecherhalle{
-    font-size: 16px;
+    font-size: 14px;
     padding:1px 1px;
 
   }
 }
 @media (min-width:961px)
 { .text{
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 13px;
 }
   .buecherhalle{
-    font-size: 22px;
+    font-size: 20px;
     padding:1px 1px;
   }
 }
 @media (min-width:1025px)
 { .text{
-  font-size: 25px;
+  font-size: 23px;
   margin-bottom: 15px;
 }
   .buecherhalle{
-    font-size: 25px;
+    font-size: 23px;
     padding:1px 1px;
   }
 }
 @media (min-width:1281px)
 { .text{
-  font-size: 30px;
+  font-size: 28px;
   margin-bottom: 15px;
 }
   .buecherhalle{
-    font-size: 30px;
+    font-size: 28px;
     padding:1px 1px;
   }
 }
@@ -381,11 +381,11 @@ font-family: 'Work Sans', sans-serif;
   }
 
   .text{
-    font-size: 7px;
+    font-size: 6px;
     margin-bottom: 2px;
   }
   .buecherhalle{
-    font-size: 7px;
+    font-size: 6px;
     padding:1px 1px;
   }
 }
