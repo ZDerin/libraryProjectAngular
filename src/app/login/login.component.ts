@@ -5,6 +5,7 @@ import {UserdataService} from "../userdata.service";
 import {LogoutComponent} from "../logout/logout.component";
 import {UserJwt} from "../interfaces";
 import {Router} from "@angular/router";
+import {AlertsService} from "../alerts.service";
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,8 @@ export class LoginComponent {
 
   constructor(private formBuilder: FormBuilder,
               private userdataService : UserdataService,
-              private router : Router) {
+              private router : Router,
+              private alertsService : AlertsService) {
   }
 
   get formControls() {
@@ -59,7 +61,8 @@ export class LoginComponent {
         });
       },
       error => {
-        window.alert("Einloggen Daten sind nicht richtig!")
+       // window.alert("Login Daten sind nicht richtig!")
+        this.alertsService.openDialog("Achtung", "Login Daten sind nicht richtig!")
       })
   }
 

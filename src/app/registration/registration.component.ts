@@ -63,7 +63,8 @@ export class RegistrationComponent {
         }
         this.userdataService.registerNewUser(userToRegister).subscribe({
           next: (response) => {
-            window.alert("Die Registrierung war erfolgreich!");
+            // window.alert("Die Registrierung war erfolgreich!");
+            this.alertsService.openDialog("Juhu!", "Die Registrierung war erfolgreich!")
 
             this.router.navigate(['/log']);
             this.errorTextEmail = "";

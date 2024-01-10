@@ -8,6 +8,7 @@ import {LesewunschlistService} from "../lesewunschlist.service";
 import {HttpClientModule} from "@angular/common/http";
 import {LadevorgangService} from "../ladevorgang.service";
 import {LadevorgangComponent} from "../ladevorgang/ladevorgang.component";
+import {AlertsService} from "../alerts.service";
 
 @Component({
   selector: 'app-readingwishlist',
@@ -30,7 +31,8 @@ export class VerwaltelesewunschlisteComponent {
 
   constructor(private router: Router,
               private lesewunschlistService : LesewunschlistService,
-              private ladevorgangService: LadevorgangService) {
+              private ladevorgangService: LadevorgangService,
+              private alertsService : AlertsService) {
   }
 
   handleFileInput(event: any) {
@@ -43,17 +45,20 @@ export class VerwaltelesewunschlisteComponent {
       this.lesewunschlistService.postFile(this.fileToUpload!!).subscribe({
         next : data => {
           this.ladevorgangService.hideLoader();
-          window.alert("Deine Goodreads Lesewunschliste wurde erfolgreich hinzugefügt!")
+          //window.alert("Deine Goodreads Lesewunschliste wurde erfolgreich hinzugefügt!")
+          this.alertsService.openDialog("Juhu", "Deine Goodreads Lesewunschliste wurde erfolgreich hinzugefügt!")
           this.router.navigate(['/home']);
         }
         , error : msg => {
           console.log(msg);
           this.ladevorgangService.hideLoader();
-          window.alert("Deine Goodreads Lesewunschliste konnte nicht hinzugefügt werden!");
+          //window.alert("Deine Goodreads Lesewunschliste konnte nicht hinzugefügt werden!");
+          this.alertsService.openDialog("Achtung", "Deine Goodreads Lesewunschliste konnte nicht hinzugefügt werden!")
         }
       });
     }else {
-      window.alert("Keine Datei vorhanden!")
+      //window.alert("Keine Datei vorhanden!")
+      this.alertsService.openDialog("Achtung", "Keine Datei vorhanden!")
     }
 
   }
@@ -77,9 +82,11 @@ export class VerwaltelesewunschlisteComponent {
           }
         });
       this.bookToReadForm.reset();
-      window.alert("Buch wurde erfolgreich addiert!")
+      // window.alert("Buch wurde erfolgreich addiert!")
+      this.alertsService.openDialog("Juhu!", "Buch wurde erfolgreich hinzugefügt!")
     } else {
-      window.alert("Buch konnte nicht addiert werden!")
+      this.alertsService.openDialog("Achtung!", "Buch konnte nicht hinzugefügt werden!")
+      //window.alert("Buch konnte nicht addiert werden!")
     }
   }
 
