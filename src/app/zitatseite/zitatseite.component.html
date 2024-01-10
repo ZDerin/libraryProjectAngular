@@ -1,4 +1,4 @@
-<section *ngIf="zitat">
+<section *ngIf="zitat; else defaultZitat">
 
   <div class="mb-wrap mb-style-2">
     <blockquote>
@@ -16,3 +16,20 @@
   <br>
 
 </section>
+
+<ng-template #defaultZitat>
+  <div class="mb-wrap mb-style-2">
+    <blockquote>
+      <p>Das einzige, was Sie unbedingt wissen müssen, ist der Standort einer Bibliothek.</p>
+    </blockquote>
+  </div>
+
+  <div class="mb-attribution">
+    <cite class="mb-author">
+      Albert Einstein
+    </cite>
+  </div>
+
+  <br>
+  <br>
+</ng-template>
