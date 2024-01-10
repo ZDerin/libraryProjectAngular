@@ -13,9 +13,10 @@ export class ZitatService {
   }
 
   getZufallsZitat() {
+    console.log("In getZufallsZitat")
     const headers = {
-      'content-type': 'application/json',
-      'authorization:' : `Bearer ${localStorage.getItem('token')}`};
+      'content-type' : 'application/json',
+      'authorization' : `Bearer ${localStorage.getItem('token')}`};
     return this.http.get<Zitat>(this.getZitatUrl, {headers})
   }
 }

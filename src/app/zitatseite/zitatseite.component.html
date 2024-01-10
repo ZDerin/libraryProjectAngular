@@ -1,4 +1,35 @@
-<div>
-  <blockquote>The man who comes back through the door in the wall will never be quite the same as the man who went out.</blockquote>
-  <cite>Aldous Huxley</cite>
-</div>
+<section *ngIf="zitat; else defaultZitat">
+
+  <div class="mb-wrap mb-style-2">
+    <blockquote>
+      <p>{{zitat.zitat}}</p>
+    </blockquote>
+  </div>
+
+  <div class="mb-attribution">
+    <cite class="mb-author">
+      {{zitat.name}}
+    </cite>
+  </div>
+
+  <br>
+  <br>
+
+</section>
+
+<ng-template #defaultZitat>
+  <div class="mb-wrap mb-style-2">
+    <blockquote>
+      <p>Das einzige, was Sie unbedingt wissen müssen, ist der Standort einer Bibliothek.</p>
+    </blockquote>
+  </div>
+
+  <div class="mb-attribution">
+    <cite class="mb-author">
+      Albert Einstein
+    </cite>
+  </div>
+
+  <br>
+  <br>
+</ng-template>

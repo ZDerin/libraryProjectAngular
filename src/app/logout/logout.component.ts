@@ -1,10 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {UserdataService} from "../userdata.service";
+import {ZitatseiteComponent} from "../zitatseite/zitatseite.component";
 
 @Component({
   selector: 'app-logout',
   standalone: true,
-  imports: [],
+  imports: [
+    ZitatseiteComponent
+  ],
   templateUrl: './logout.component.html',
   styleUrl: './logout.component.css'
 })

@@ -5,24 +5,24 @@ import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {Standort} from "../interfaces";
 
 @Component({
-    selector: 'app-standorte',
-    standalone: true,
+  selector: 'app-standorte',
+  standalone: true,
   imports: [
     NgForOf,
     ReactiveFormsModule,
     NgClass
   ],
-    templateUrl: './standorte.component.html',
-    styleUrl: './standorte.component.css'
+  templateUrl: './standorte.component.html',
+  styleUrl: './standorte.component.css'
 })
 export class StandorteComponent {
-    actualLocation: string |null = localStorage.getItem('standort');
-    content: Standort [] = [];
-    @Input() displayedLocations : Standort [] | undefined;
-    isClickedArr: boolean[] = [];
+  actualLocation: string | null = localStorage.getItem('standort');
+  content: Standort [] = [];
+  @Input() displayedLocations: Standort [] | undefined;
+  isClickedArr: boolean[] = [];
 
-    constructor(private standortService : StandortService) {
-    }
+  constructor(private standortService: StandortService) {
+  }
 
   saveLocation(standort: string) {
     localStorage.setItem('standort', standort);
@@ -31,12 +31,12 @@ export class StandorteComponent {
     //this.standortService.setActualLocation(this.actualLocation);
   }
 
-  clickAnimation(i : number) {
-    if(this.isClickedArr !== undefined){
+  clickAnimation(i: number) {
+    if (this.isClickedArr !== undefined) {
       new Array(this.displayedLocations!.length).fill(false);
     }
     this.isClickedArr[i] = !this.isClickedArr[i];
-    setTimeout(()=>{
+    setTimeout(() => {
       this.isClickedArr[i] = !this.isClickedArr[i];
     }, 150)
   }

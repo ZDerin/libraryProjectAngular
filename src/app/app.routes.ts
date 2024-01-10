@@ -9,6 +9,7 @@ import {AllebuecherComponent} from "./allebuecher/allebuecher.component";
 import {StandorteComponent} from "./standorte/standorte.component";
 import {FilteredStandorteComponent} from "./filtered-standorte/filtered-standorte.component";
 import {UeberunsComponent} from "./ueberuns/ueberuns.component";
+import {ZitatseiteComponent} from "./zitatseite/zitatseite.component";
 
 export const routes: Routes = [
   {path: '' , component: StartseiteComponent},
@@ -19,5 +20,6 @@ export const routes: Routes = [
   {path: 'readingwishlist', component: VerwaltelesewunschlisteComponent},
   {path: 'allbooks', component: AllebuecherComponent},
   {path: 'location', component: FilteredStandorteComponent},
-  {path: 'about', component: UeberunsComponent}
+  {path: 'about', component: UeberunsComponent},
+  {path: 'quote', component: ZitatseiteComponent}
 ];
