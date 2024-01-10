@@ -1,18 +1,14 @@
-<section>
-  <div *ngIf="zitat">
-    <blockquote>{{zitat.zitat}}</blockquote>
-    <cite>{{zitat.name}}</cite>
-  </div>
+<section *ngIf="zitat">
 
   <div class="mb-wrap mb-style-2">
     <blockquote>
-      <p>  If you don't know where are you going, any road will get you there.</p>
+      <p>{{zitat.zitat}}</p>
     </blockquote>
   </div>
 
   <div class="mb-attribution">
     <cite class="mb-author">
-      Lewis Carroll
+      {{zitat.name}}
     </cite>
   </div>
 

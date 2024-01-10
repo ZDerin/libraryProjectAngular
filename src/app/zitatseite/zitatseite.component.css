@@ -10,11 +10,16 @@ section {
   padding-top: 0;
 }
 
+.backendquote {
+  color: black;
+  font-weight: bold;
+}
+
 .mb-wrap {
   margin : 20px auto;
   padding : 20px;
   position : relative;
-  width : 300px;
+  max-width : 500px;
 }
 
 .mb-wrap p {
