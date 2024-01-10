@@ -29,6 +29,7 @@
 </div>
 </div>
 
+<div class="columns is-multiline">
 <div class="all-locations-div">
 <div class="column is-12-mobile is-6-tablet" *ngFor="let standort of displayedLocations; let i = index">
     <div class="standort">
@@ -38,5 +39,6 @@
               class="location-btn"
               [ngClass]="{'clicked': isClickedArr[i]}"> Wähle aus</button>
     </div>
+</div>
 </div>
 </div>
